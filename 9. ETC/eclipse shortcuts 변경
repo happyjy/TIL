@@ -1,0 +1,14 @@
+#Toggle Block Selection
+Alt + shift + A => Alt + C
+
+#Find Next
+Ctrl+K => Ctrl+Q
+Ctrl+Shift+K => Ctrl+Shift+Q
+
+#Last Edit location
+Ctrl+Q => Ctrl+K
+
+#Tab to space
+Windows - > Preferences 메뉴 선택
+General → Editors → Text Editor 선택
+tab width 를 확인한 후에  Insert spaces for tabs 체크
