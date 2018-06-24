@@ -1,0 +1,63 @@
+### 정리 필요... 
+ 
+ 
+ vue init~~
+ npm install
+ npm run dev
+
+ npm install -global vue-cli
+
+### 통합 터미널 
+    control + `
+
+### node 설치 확인
+    node -v
+
+### npm 설치 확인
+    npm -v (version 확인)
+
+### cli 도구에서 콘솔 명령어 
+    강사님이 정리한 사이트를
+
+### 플러그인 설치
+    * theme
+    google material dark
+    night owl
+    * icon theme 
+    Material icon the
+
+    * 필요 플러그인 fb에 list up 해주신다고 함
+
+
+### 단축키
+1. 통합터미널
+contrl + ~
+
+### 터미널 명령어
+pwd : 파일 위치
+ls : 동일 레벨 폴더/파일 확인
+cd : dir 이동
+cd .. : 상위 폴더
+npm init
+clear : 터미널 청소
+
+###
+
+1.설정 파일 생성( 프로젝트 초기화 )
+npm init
+
+2. 사용할 라이브러리 추가
+npm install '라이브러리 이름'
+eg) npm install jquery
+
+3.
+
+control C
+
+
+
+
+--------------
+### init -y
+### npm install gulp-cli (지역 설치)
+### npm install gulp_cli -global
