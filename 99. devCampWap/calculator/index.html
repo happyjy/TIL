@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="calc.css">
+  <title>계산기 과제 - 윤재윤</title>
+</head>
+<body>
+  <!-- 2개의 숫자를 입력 받는 인풋 박스
+입력한 2개의 숫자를 연산하는 덧셈(+), 뺄셈(-) 기능
+계산 과정과 결과를 화면에 출력 -->  
+
+  <div class='calcBox'>
+    <div class='historyNResult'>
+      <div>
+        <span> 과정 : </span>
+        <span class='calHistory'></span>
+      </div>
+      <div>
+        <span>결과 : </span>
+        <span class='calResult'></span>
+      </div>
+    </div>
+
+    <div class='formula'>
+      <input class='operand1' type="number" min="0" pattern="[0-9]">
+      <span class='operator'></span>
+      <input class='operand2' type="number" min="0" pattern="[0-9]">
+    </div>
+    
+    <div class='operatorOption'>
+      <div class='minus'> - </div>
+      <div class='plus'> + </div>
+    </div>
+    
+
+    <div class='fnBtn'>
+      <div class='calculator'>계산</div>
+      <div class='init'>초기화</div>
+    </div>
+    
+    <div class='number'>
+      <!-- 1. js, foreach, append 
+           2. key/mouse, down/up -->
+      <!-- <div data-key="48" class="key">
+        <kbd>0</kbd>
+      </div> -->
+    </div>
+
+
+  </div>
+  <script src="calc.js"></script>
+
+</body>
+</html>
