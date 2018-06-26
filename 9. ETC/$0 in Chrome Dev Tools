@@ -1,0 +1,13 @@
+
+
+### 개발자도구 > Elements 탭에서 
+선택한 Elements를 선택 할 수 있다.
+
+* 가장 마지막으로 선택한 Elements => $0
+* 마지막에서 두번째로 선택한 Elements => $1
+
+
+
+개발자 도구 
+> Elements tab : 확인하고 싶은 Elements 선택
+> Console : 에서 '$0' 입력시 선택한 Elements가 선택 됨.
