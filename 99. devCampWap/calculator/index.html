@@ -24,9 +24,9 @@
     </div>
 
     <div class='formula'>
-      <input class='operand1' type="number" min="0" pattern="[0-9]">
+      <input class='operand1' type="number" min="0" oninput="validity.valid||(value='');">
       <span class='operator'></span>
-      <input class='operand2' type="number" min="0" pattern="[0-9]">
+      <input class='operand2' type="number" min="0" oninput="validity.valid||(value='');">
     </div>
     
     <div class='operatorOption'>
