@@ -1,0 +1,3 @@
+1. source 탭에서 한글 깨짐 현상
+* 크롬 확장프로그램 설치 : Set Character Encoding 
+* 크롬 > 마우스 오른쪽 버튼 > Set Character Encoding  > Unicode(UTF-8) 
