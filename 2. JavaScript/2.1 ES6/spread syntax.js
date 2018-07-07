@@ -55,3 +55,11 @@ console.log(arr);
  * Example3 Math
  */
 // ...?
+
+
+
+/**
+ * 참고자료
+ * 
+ * https://codeburst.io/javascript-es6-the-spread-syntax-f5c35525f754
+ */
