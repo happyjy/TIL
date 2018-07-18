@@ -1,0 +1,22 @@
+with는 inline view, 임시 테이블처럼 사용된다.
+
+
+SELECT e.ename AS employee_name,
+       dc.dept_count AS emp_dept_count
+FROM   emp e
+       JOIN (SELECT deptno, COUNT(*) AS dept_count
+             FROM   emp
+             GROUP BY deptno) dc
+         ON e.deptno = dc.deptno;
+
+
+위 문장을 with 로 표현 하면 다음과 같다.
+
+WITH dept_count AS (
+  SELECT deptno, COUNT(*) AS dept_count
+  FROM   emp
+  GROUP BY deptno)
+SELECT e.ename AS employee_name,
+       dc.dept_count AS emp_dept_count
+FROM   emp e
+       JOIN dept_count dc ON e.deptno = dc.deptno;
