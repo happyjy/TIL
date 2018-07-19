@@ -1,0 +1,21 @@
+#Maven
+#Spring 
+#Svn
+
+
+
+#Maven
+  * 메이븐은 프로젝트 객체 모델(Project Object Model)이라는 개념을 바탕으로
+  프로젝트 의존성 관리, 라이브러리 관리, 프로젝트 생명 주기 관리 기능 등을 제공하는 프로젝트 관리 도구
+  * 기능/특징 : 빌드, 문서화, 레포팅, 의존관계관리, 소스코드관리, 배포
+#Spring
+  * 스프링이란 ? 
+    - 
+
+#Svn
+  * a software versioning and revision control system distributed under an open source license
+  * Version Control System(VCS)은 개발자들이 함께 일하고 작업 이력을 유지하는데 돕는다.
+  * 목표 
+    - 동시작업 가능
+    - 한파일에 overwrite 하지 않게
+    - Maintain history of every version of everything.
