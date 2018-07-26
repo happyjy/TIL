@@ -1,0 +1,10 @@
+
+
+1. 특정 문자열 포함 찾아 내는 방법
+3가지 function 사용
+FIND
+ISERROR
+IF 
+
+eg)
+IF(ISERROR(FIND("TL_MOLD",A:A )), FALSE, TRUE)
