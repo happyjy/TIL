@@ -1,6 +1,8 @@
 <<>> Join
 : Outer join중 Left Outer Join, Right Outer Join이 헷갈려서 정리
 (정확히 + 기호 쓰는것이 헷갈림)
+: [***] outer join으로 상응 하는 값이 없으면 그 데이터는 'null'이다.
+: 
 
 # two tables
 A    B
@@ -11,12 +13,39 @@ A    B
 4    6
 
 --------------------------------------------------------------------
+#Inner join
+
+An inner join using either of the equivalent queries gives the intersection of the two tables, i.e. the two rows they have in common.
+
+select * from a INNER JOIN b on a.a = b.b;
+select a.*, b.*  from a,b where a.a = b.b;
+
+=
+> left outer join
+select a.*, b.* 
+  from a,b 
+ where a.a = b.b(+)
+   and b is not null;
+
+=
+> right outer join
+select a.*, b.* 
+  from a,b 
+where a.a(+) = b.b
+  and b is not null;
+
+a | b
+--+--
+3 | 3
+4 | 4
+
+--------------------------------------------------------------------
 #Left outer join
 [***] A 테이블 전부 나온다(+ 기호는 b쪽에 쓴다)
 A left outer join will give all rows in A, plus any common rows in B.
 
 select * from a LEFT OUTER JOIN b on a.a = b.b;
-select a.*, b.*  from a,b where a.a = b.b(+);
+select a.*, b.* from a,b where a.a = b.b(+);
 a |  b
 --+-----
 1 | null
@@ -24,13 +53,18 @@ a |  b
 3 |    3
 4 |    4
 
+select a.*, b.* 
+  from a,b 
+ where a.a = b.b(+)
+   and b is not null;
+
 --------------------------------------------------------------------
 #Right outer join
 [***] B 테이블 전부 나온다(+ 기호는 a쪽에 쓴다)
 A right outer join will give all rows in B, plus any common rows in A.
 
 select * from a RIGHT OUTER JOIN b on a.a = b.b;
-select a.*, b.*  from a,b where a.a(+) = b.b;
+select a.*, b.* from a,b where a.a(+) = b.b;
 
 a    |  b
 -----+----
@@ -60,3 +94,8 @@ null |    5
 
 
 
+
+
+======
+ref 
+1. https://stackoverflow.com/questions/38549/what-is-the-difference-between-inner-join-and-outer-join
