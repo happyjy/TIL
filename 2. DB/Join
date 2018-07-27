@@ -1,0 +1,62 @@
+<<>> Join
+: Outer join중 Left Outer Join, Right Outer Join이 헷갈려서 정리
+(정확히 + 기호 쓰는것이 헷갈림)
+
+# two tables
+A    B
+-    -
+1    3
+2    4
+3    5
+4    6
+
+--------------------------------------------------------------------
+#Left outer join
+[***] A 테이블 전부 나온다(+ 기호는 b쪽에 쓴다)
+A left outer join will give all rows in A, plus any common rows in B.
+
+select * from a LEFT OUTER JOIN b on a.a = b.b;
+select a.*, b.*  from a,b where a.a = b.b(+);
+a |  b
+--+-----
+1 | null
+2 | null
+3 |    3
+4 |    4
+
+--------------------------------------------------------------------
+#Right outer join
+[***] B 테이블 전부 나온다(+ 기호는 a쪽에 쓴다)
+A right outer join will give all rows in B, plus any common rows in A.
+
+select * from a RIGHT OUTER JOIN b on a.a = b.b;
+select a.*, b.*  from a,b where a.a(+) = b.b;
+
+a    |  b
+-----+----
+3    |  3
+4    |  4
+null |  5
+null |  6
+
+--------------------------------------------------------------------
+#Full outer join
+
+A full outer join will give you the union of A and B, 
+i.e. all the rows in A and all the rows in B. 
+If something in A doesn't have a corresponding datum in B, 
+then the B portion is null, and vice versa.
+
+select * from a FULL OUTER JOIN b on a.a = b.b;
+
+ a   |  b
+-----+-----
+   1 | null
+   2 | null
+   3 |    3
+   4 |    4
+null |    6
+null |    5
+
+
+
