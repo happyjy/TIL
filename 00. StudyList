@@ -1,4 +1,4 @@
-INDEX
+<<>> INDEX
 <> Web
 <> NetWork
 <> JavaScript
@@ -7,9 +7,15 @@ INDEX
 
 
 ---
+<<>> Detail 
 
 <> Web
-브라우저 동작 방법(렌더링 되는 과정)
+# 브라우저 동작 방법(렌더링 되는 과정)
+https://d2.naver.com/helloworld/59361
+
+# actual DOM vs Virtual DOM
+https://github.com/joshua1988/vuejs-seminar/blob/master/slides/vuejs-intermediate.pdf
+
 
 <> NetWork
 * 네트워크의 구성 및 구조, 접속, 자료 전송, 프로토콜, 네트워크 관리 등
@@ -28,6 +34,10 @@ INDEX
 
 <> JavaScript
 # documents.createElement 생성 과정을 알 필요가 있겠음 
+# synchronous(setTimeout, setInterval)
+# server-side rendering &(react, vue)
+# ajax & server connection 
+#
 
 
 
