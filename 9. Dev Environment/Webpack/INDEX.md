@@ -15,7 +15,7 @@
 1. Everything is Module
 모든 웹 자원 (js, css, html) 이 모듈 형태로 로딩 가능
 ```
-require(`myJSfile.js');
+require('myJSfile.js');
 require('myCSSfile.css');
 ```
 
@@ -40,11 +40,11 @@ scripts: {
 ```
 
 #webpack CLI Vs webpack-dev-server
-> webpack이 제공하는 두개 interfaces  
+> webpack이 제공하는 두개 interfaces  'Webpack CLI tool', 'webpack-dev-server tool'  
 
-1. Webpack CLI tool 
-: the default interface(installed as part of Webpack itself)
-: Webpack을 처음 배울때 cli를 사용하는 것을 추천한다.
+1. Webpack CLI tool  
+: the default interface(installed as part of Webpack itself)  
+: Webpack을 처음 배울때 cli를 사용하는 것을 추천한다.  
 ```
 Usage: 
 
@@ -93,19 +93,19 @@ http://localhost:8080
 
 ### Webpack 에 필요한 NPM 명령어
 > npminit 웹팩 초기 설정에 필요한 명령어로 package.json 파일을 생성  
-npminstall(i) 라이브러리 명 (여러개 한번에 가능)  
+npm install(i) 라이브러리 명 (여러개 한번에 가능)  
 ```
 npm i jquery angular lodash ‐‐save
 ```
 
 
 ## Core Concept
-> Entry
-> OutPut
-> Loaders
-> Plugins
+> Entry  
+> OutPut  
+> Loaders  
+> Plugins  
 
 
-### 참고
+  ### 참고
 > https://webpack.js.org/
 > https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9
