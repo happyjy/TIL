@@ -1,7 +1,7 @@
 # Webpack
 
 ## Webpack 이란 ? 
-> 서로 연관 관계가 있는 웹 자원들을 js, css, img와 같은 스태틱한 자원으로 변환해주는
+> 서로 연관 관계가 있는 웹 자원들을 js, css, img와 같은 스태틱한 자원으로 변환해주는  
 모듈 번틀러
 > 번들링 하면 한개 또는 한개 이상의 파일을 만들어 낸다.
 
@@ -19,17 +19,17 @@ require(`myJSfile.js');
 require('myCSSfile.css');
 ```
 
-2. Load only “what” you need and “when” you need
-초기에 불필요한 것들을 모두 로딩하지 않고, 필요할 때 필요한 것만 로딩하여 사용
-(가능한 이유 : 모듈 번들러는 모든 모듈을 bundle.js (10MB-15MB)파일에 가지고 있다.
-then bundle.js를 생성한다. -Webpack은 다양한 구조물을 가지고 있고 쪼개- 
-then load 한다. -app에서 asynchronously하게-)
+2. Load only “what” you need and “when” you need  
+초기에 불필요한 것들을 모두 로딩하지 않고, 필요할 때 필요한 것만 로딩하여 사용  
+(가능한 이유 : 모듈 번들러는 모든 모듈을 bundle.js (10MB-15MB)파일에 가지고 있다.  
+then bundle.js를 생성한다. -Webpack은 다양한 구조물을 가지고 있고 쪼개-  
+then load 한다. -app에서 asynchronously하게-)  
 
 
 ### Development Vs Production
-> build : npm run bvuild to build prodection dundles
+> build : npm run bvuild to build prodection dundles  
 > dev : webpack_dev_server
-```
+``` 
 scripts: {
   //npm run bvuild to build prodection dundles
   "build" : "webpack --config webpack.config.prod.js",
@@ -40,7 +40,7 @@ scripts: {
 ```
 
 #webpack CLI Vs webpack-dev-server
-> webpack이 제공하는 두개 interfaces
+> webpack이 제공하는 두개 interfaces  
 
 1. Webpack CLI tool 
 : the default interface(installed as part of Webpack itself)
@@ -68,8 +68,8 @@ npm install webpack --save
 ```
 
 2. webpack-dev-server tool 
-: A Node.js server(You need to install it separately)
-: 장점1 - Live Reloading & replacing(Hot Module Replacemnt-HMR) 
+: A Node.js server(You need to install it separately)  
+: 장점1 - Live Reloading & replacing(Hot Module Replacemnt-HMR)  
 ```
 Usage: 
 
@@ -92,8 +92,8 @@ http://localhost:8080
 ```
 
 ### Webpack 에 필요한 NPM 명령어
-> npminit 웹팩 초기 설정에 필요한 명령어로 package.json 파일을 생성
-npminstall(i) 라이브러리 명 (여러개 한번에 가능)
+> npminit 웹팩 초기 설정에 필요한 명령어로 package.json 파일을 생성  
+npminstall(i) 라이브러리 명 (여러개 한번에 가능)  
 ```
 npm i jquery angular lodash ‐‐save
 ```
