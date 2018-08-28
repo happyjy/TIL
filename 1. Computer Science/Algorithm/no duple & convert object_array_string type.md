@@ -1,3 +1,29 @@
+# Object type -> Array type -> String type
+> 각 단계 마다 반복문을 사용
+
+## Object type -> Array type
+> 
+```
+for (variable in object) { 
+  ...varibale = key of object
+}
+``` 
+
+## Array type -> String type
+> 
+```
+arr.forEach(function callback(currentValue[, index[, array]]) {
+    //your iterator
+}[, thisArg]);
+```
+ * array  
+The array that forEach() is being applied to.
+ * thisArg   
+Value to use as this (i.e the reference Object) when executing callback.
+
+
+## 예시코드
+```
 var dataList = [
   {lClass_nm : "대분류1", mClass_nm : "중분류1", lClass_cd : "L001", mClass_cd : "M001"},
   {lClass_nm : "대분류1", mClass_nm : "중분류2", lClass_cd : "L001", mClass_cd : "M002"},
@@ -30,7 +56,7 @@ dataList.forEach(function(item, idx){
 var noDuplArrLclass = [];
 var noDuplArrMclass = [];
 for(var key1 in noDuplObjLclass){
-  noDuplArrLclass.push(noDuplObjLClass[key1]);
+  noDuplArrLclass.push(noDuplObjLclass[key1]);
 }
 
 for(var key2 in noDuplObjMclass){
@@ -38,6 +64,7 @@ for(var key2 in noDuplObjMclass){
 }
 
 // step3. array type -> string type
+// 결과
 // 대분류1 || 중분류1, 중분류2, 증분류3
 // 대분류2 || 중분류4
 var lClassStr = '';
@@ -50,3 +77,4 @@ noDuplArrLclass.forEach(function(item, idx){
 noDuplArrMclass.forEach(function(item, idx){
   noDuplArrMclass.length -1 == idx ? mClassStr += item.mClass_nm : mClassStr += item.mClass_nm + ", ";
 })
+```
