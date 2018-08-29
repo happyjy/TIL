@@ -16,6 +16,8 @@ etc
 
 # Web
 * shadow_dom
+  - ref : https://developers.google.com/web/fundamentals/web-components/shadowdom
+  - ref : https://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/#toc-introduction
 * 브라우저 동작 방법(렌더링 되는 과정)
   - 참고자료 : https://d2.naver.com/helloworld/59361
 * actual DOM vs Virtual DOM  
