@@ -46,6 +46,8 @@ etc
   - ref : https://rubygarage.org/blog/best-javascript-frameworks-for-front-end
 
 # etc
+* (20180831) [***]50 Dev tool tips and tricks: Become an expert front end developer
+  - https://www.youtube.com/watch?time_continue=1&v=oYvtsHu6GmY
 * 리눅스 명령어
 * git, Sourcetree 원리
 * gulp.js, webpack 원리
