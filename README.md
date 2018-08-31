@@ -30,6 +30,9 @@ etc
 * (20180828) ~~no duple & convert object_array_string type~~
 
 # JavaScript
+* (20180831) 15 things you need to know be master in JS array
+  - 일하면서 배열 자료형을 다루다 응용적인 내용을 더 알고 싶었는데 여기 몇개 배울게 있는것 같음
+  - ref http://thatjsdude.com/jsConcepts/concepts/array.html#push_multiple
 * (20180829) ~~SETTING OBJ KEY WITH CONTANT, VARIABLE~~
 * documents.createElement 생성 과정을 알 필요가 있겠음 
 * synchronous(setTimeout, setInterval)
