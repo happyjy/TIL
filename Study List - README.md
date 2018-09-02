@@ -33,7 +33,7 @@ etc
 * (20180902) hoisting
   - 일하다가 이 개념을 들어 본거같은데 공부하다가 아래 사이트 발견 공부해보기
   - ref : http://blog.caplin.com/2012/01/18/javascript-is-hard-part-2-the-hidden-world-of-hoisting/
-* (20180831) 15 things you need to know be master in JS array
+* (20180831)~~(20180902)15 things you need to know be master in JS array~~
   - 일하면서 배열 자료형을 다루다 응용적인 내용을 더 알고 싶었는데 여기 몇개 배울게 있는것 같음
   - ref http://thatjsdude.com/jsConcepts/concepts/array.html#push_multiple
 * (20180829) ~~SETTING OBJ KEY WITH CONTANT, VARIABLE~~
