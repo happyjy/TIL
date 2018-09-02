@@ -224,3 +224,119 @@ GFs.splice(2, 2, 'Texas GF', 'Florida GF', 'Hawai GF')
  GFs
   =["Winter", "Spring", "Texas GF", "Florida GF", "Hawai GF", "rain", "harvest"] 
   ```
+
+
+  # 10. delete dont delete
+  > delete는 배열에 빈 공백만 생기게 한다. 
+  > splice, slice를 사용하자
+
+``` js
+var myArr = [1,2,3,4,5,6,7];
+delete myArr[3]
+ = true
+myArr
+ = [1, 2, 3, empty, 5, 6, 7]
+ ```
+
+# 11.use build in function#
+> [이해필요]Functional Programming to the Rescue  
+참고 : https://code.tutsplus.com/tutorials/what-they-didnt-tell-you-about-es5s-array-extras--net-28263
+```js
+> ["Happy", 0, "New", "", "Year", false].filter(Boolean);
+  = ["Happy", "New", "Year"]
+
+```
+ 
+## 예시 reduce
+reduce cache the value. for example u want to get the sum of all the element. alternatively, you can initially
+
+```
+[1, 2, 3, 4].reduce(function(sum, el, idx, arr){
+  return sum + el;
+})
+ = 10
+
+[1, 2, 3, 4].reduce(function(sum, el, idx, arr){
+  return sum + el;
+}, 100)
+ = 110
+ ```
+
+# 12. real length by reduce
+> talk about reduce here
+
+``` js 
+ ["hello", , , , , "javaScript"].reduce(function(count){ 
+    return count + 1; 
+  }, 0);
+  = 2 
+```
+
+# 13. check array
+> isArray 키워드로 확인하자  
+typeof로는 객체, 배열 모두 "object"로 확인된다.
+```js 
+> typeof []
+  = "object"
+> typeof {}
+  = "object"  
+
+> Array.isArray([]);
+  = true
+> Array.isArray({});
+  = false
+```
+
+# 14. deal with Array-like objects
+``` js 
+function foo(){
+  console.log(arguments, 'len', arguments.length, '2nd', arguments[1])
+}
+
+foo(1, 2, 3,4)
+ = [1, 2, 3, 4] "len" 4 "2nd" 2 
+```
+
+```js 
+
+function foo(){
+  console.log(Array.isArray(arguments));
+  arguments.push(5);
+  console.log(arguments, 'len', arguments.length, '2nd', arguments[1])
+}
+foo(1, 2, 3,4)
+ = false
+ = TypeError: Object #<Object> has no method 'push'
+```  
+
+``` js
+function foo(){
+  var args = Array.prototype.slice.call(arguments);
+  args.push(5);
+  console.log(args, 'len', args.length, '2nd', args[1])
+}
+
+foo(1, 2, 3,4)
+ = [1, 2, 3, 4, 5] "len" 5 "2nd" 2
+ ```
+
+# 15. array method in string
+```js 
+var dd = 'that JS Dude';
+
+dd.filter(function (el, idx){
+  return idx>7;
+})
+ = TypeError: Object that JS Dude has no method 'filter'
+  
+
+[].filter.call(dd, function(el, idx){
+ return idx>7;
+})
+ = ["D", "u", "d", "e"]
+ ```
+  
+ # +Basic Array method
+> callback function of map, filter, some, every, forEach has three parameters: elem, index, arr.  
+And you can optionally pass "this" as second argument of these Array method.
+
