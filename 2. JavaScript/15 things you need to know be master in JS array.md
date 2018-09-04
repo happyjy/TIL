@@ -1,3 +1,27 @@
+# 15 things you need to know be a master in JS Array
+
+## index
+1. Best way to create Array
+2. Don't randomly insert by index
+3. use right index to insert
+4. push multiple
+5. unshift multiple
+6. Don't blindly set length
+7. IndexOf: type and instance sensitive
+8. IndexOf Extra parameter
+9. slice splice
+10. delete dont delete
+11. use build in function as callBack
+12. real length by reduce
+13. isArray
+14. Array like object
+15. Array methods in string
+
+
+plus. map, forEach, filter, some, every  
+sort, reverse (not added)  
+join, concat (not added)  
+
 
 
 # 1. Best way to Create Array
@@ -238,7 +262,7 @@ myArr
  = [1, 2, 3, empty, 5, 6, 7]
  ```
 
-# 11.use build in function#
+# 11.use build in function
 > [이해필요]Functional Programming to the Rescue  
 참고 : https://code.tutsplus.com/tutorials/what-they-didnt-tell-you-about-es5s-array-extras--net-28263
 ```js
