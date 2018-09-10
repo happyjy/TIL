@@ -48,6 +48,13 @@ etc
 * Vue 기준으로 AngularJs, react, polymer 비교 
   - ref : https://rubygarage.org/blog/best-javascript-frameworks-for-front-end
 
+
+# Git
+* (20180910)github hosting -> "github Pages"  
+  jekyllrb는 뭐하는 건지 알아보기 https://jekyllrb.com/
+* (20180910)vs code & git 연동 방법
+
+
 # etc
 * (20180831) [중요***]50 Dev tool tips and tricks: Become an expert front end developer
   - https://www.youtube.com/watch?time_continue=1&v=oYvtsHu6GmY
