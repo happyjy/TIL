@@ -56,3 +56,7 @@ FROM   dept_costs
 WHERE  dept_total > (SELECT avg FROM avg_cost)
 ORDER BY dname;
  ```
+
+
+ ### ref
+ * https://oracle-base.com/articles/misc/with-clause

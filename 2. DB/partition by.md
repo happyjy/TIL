@@ -67,3 +67,6 @@ And the result is:
 |  Item 5      |  H&M          |   50     | 
 +--------------+---------------+----------+
 ```
+
+### ref
+ * https://stackoverflow.com/questions/561836/oracle-partition-by-keyword
