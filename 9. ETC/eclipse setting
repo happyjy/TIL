@@ -1,8 +1,0 @@
-
-# html 노란색 느낌표 아이콘 없애기 
-* Preferences > Annotations > Warnkins option > show in 체크해제
-
-#Tab to space, space to Tab
-Windows - > Preferences 메뉴 선택
-General → Editors → Text Editor 선택
-tab width 를 확인한 후에  Insert spaces for tabs 체크
