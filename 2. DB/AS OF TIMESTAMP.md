@@ -21,7 +21,8 @@ SELECT *
    AND ITEM_CD = '301019';
 ```
 
-* 조회 후 삽입 하기
+* 조회 후 삽입 하기  
+  - 삭제된 데이터 살릴
 ```
 INSERT INTO EMP 
     (SELECT * 
