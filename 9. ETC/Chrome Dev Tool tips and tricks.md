@@ -4,8 +4,6 @@
 1. elements(has event) > Elements tab > Event Listeners
 > 이벤트가 있는 엘레멘트를 inspect 했을때 이벤트 유무에 따라서 Event Listeners tab에 데이터가 나오는지 안나오는지 확인 할 수 있다.
 
-  
-
 2. ?
 
 3. Source Tab > Event Listener Breakpoints
