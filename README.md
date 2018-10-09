@@ -31,7 +31,7 @@ etc
 
 # JavaScript
 * (20180920) bind, apply, call
-* (20180920) closure
+* (20181009)~~(20180920) closure~~
 * (20180902) hoisting
   - 일하다가 이 개념을 들어 본거같은데 공부하다가 아래 사이트 발견 공부해보기
   - ref : http://blog.caplin.com/2012/01/18/javascript-is-hard-part-2-the-hidden-world-of-hoisting/
