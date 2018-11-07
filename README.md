@@ -1,7 +1,7 @@
 # HOW 
 > 1. LIST UP WONDER 
 > 2. STUDY
-> 3. DATE STUDY LIST
+> 3. DATE STUDY LIST`
 
 # INDEX 
 > WEB  
