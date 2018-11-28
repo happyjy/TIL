@@ -1,6 +1,0 @@
-=> 개발자도구에서 sc component를  createelement해서 append 하면 화면에 붙는다. 
-* sc-component가 createElement로 생성 유무가 궁금
-
-
---- 
-createElement 생성 과정을 알 필요가 있겠음 
