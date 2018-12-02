@@ -1,5 +1,6 @@
 # 8.6 closure
-> closure를 이해하는 첫걸음 : '중첩 함수의 어휘적 유효범위 규칙'
+> * closure를 이해하는 첫걸음 : '중첩 함수의 어휘적 유효범위 규칙'  
+> * 클로저는 자신을 정의한 바깥쪽 함수에 바인딩 된 지역변수(그리고 전달인자)를 포착한다.
 
 ``` js
 var scope = "global scope";
@@ -79,6 +80,7 @@ d.count();  // => 0: c.count(), d.count()는 서로 독립적
 c.reset();  // reset() 메서드와 count() 메서드는 상대를 공유
 c.count();  // => 0: c를 리셋했기 때문
 d.count();  // => 1: d는 리셋되지 않음
+c = null; //=> 클로저를 가르지고 있던 것을 해제함으로 garbege collector를 통해 회수 가능하도록 해줌
 ```
 * 위 코드 설명
   - 이 두 메서드가 'private variable', 즉 내부 변수를 n을 공유한다  
