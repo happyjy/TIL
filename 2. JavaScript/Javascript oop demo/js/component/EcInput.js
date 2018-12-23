@@ -13,6 +13,7 @@
         render: function(){
             EcComponent.prototype.render.apply(this, arguments);
             console.log(EcComponent.options);
+            
             if(this.onKeyDownHandler){
                 this.$el.bind('keydown', this.onKeyDownHandler);
             }

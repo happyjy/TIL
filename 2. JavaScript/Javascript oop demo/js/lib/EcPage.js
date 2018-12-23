@@ -7,9 +7,20 @@ ecount.page = ecount.Class(null, {
         //observer pattern 시도 
         var observerObj = new ecount.Observable();
 
+
+        /**
+         * # study this 여기에서 this란 ? 
+         * * render를 호출한 객체 
+         * */
         //Contents 영역 
         this.contentsData = this.onInitContent();        
         this.contentsData.observerObj = observerObj
+        /**
+         * # study new EcContents
+         *  * [중요]constructor 함수로 EcContents value 인 klass 값을 실행(this.init.apply(this, arguments); 실행)
+         *  * [중요]아래 코드틑 EcComponent init function에서 this 프로퍼티에 값이 추가가 되는데 
+         * contents.render코드에서 this의 값은 프로퍼티가 추가/변경된 값이 된다. 
+         */
         var contents = new EcContents(this.contentsData);
         contents.render(parentNode.contents);
         this.contents = contents;

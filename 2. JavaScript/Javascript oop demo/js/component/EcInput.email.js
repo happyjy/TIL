@@ -3,7 +3,7 @@
 (function(){
     EcInputEmail = ecount.Class(EcInput, {
         init: function(){
-            debugger;
+            // debugger;
             commonSetting(EcInput.prototype);
         },
         render: function(){

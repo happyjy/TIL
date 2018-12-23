@@ -3,21 +3,21 @@
 (function(){
     EcInputNumber = ecount.Class(EcInput, {
         init: function(){
-            if (!!options) {
-                this.setTemplate(options);
-                this["options"] = {};
-                for( option in options ){
-                    if(option === "child"){
-                        this.child = options[option];
-                    } else {
-                        this["options"][option] = options[option];
-                    }
-                }
-            }
+          EcInput.prototype.init.apply(this, arguments);
+            // if (!!options) {
+            //     this.setTemplate(options);
+            //     this["options"] = {};
+            //     for( option in options ){
+            //         if(option === "child"){
+            //             this.child = options[option];
+            //         } else {
+            //             this["options"][option] = options[option];
+            //         }
+            //     }
+            // }
         },
         render: function(){
             EcInput.prototype.render.apply(this, arguments);
-            
             // this.$el.bind('keydown', function(e){
             //     var keyID = e.keyCode;
             //     if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 

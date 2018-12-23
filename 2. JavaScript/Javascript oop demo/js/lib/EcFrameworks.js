@@ -48,9 +48,27 @@
     ecount.Class = function(parent, prototype) {	
         var Klass = function () {		
             this.init.apply(this, arguments);
-            return this;
+            return this;  
+            /**
+             * # study return this 
+             *   * 위 return this : ecount.Class function에 의해 생성된 function
+             *   * [중요]현재 이 위치에 Klass function this : ecount.Class로 생성된 값을 new 키워드로 생성한 인스턴스
+             *   * ecount.Class로 생성된 return value : 두번째 parameter에 의해서 상속 받은 값 
+             */
         }	
 
+        /**
+         * # study - Klass.prorotype = new parent();
+         *   * Klass.prototype = new parent();
+         *   - [중요]prototype은 자신을 원형으로 만들어질 객체에 물려줄 속성
+         *   - parent는 Klass의 프로토타입으로 지정
+         *   - Klass function의 __proto__ 하위 두번째 속성
+         * 
+         *   * Klass.prototype[p]
+         *   - ecount.Class function의 두번째 parameter
+         *   - Klass function의 __proto__ 하위 첫번째 속성
+         *   
+         */
         if(!!parent) Klass.prototype = new parent();
         // Klass.prototype = new parent();
         for (var p in prototype) Klass.prototype[p] = prototype[p];

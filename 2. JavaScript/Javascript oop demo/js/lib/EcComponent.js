@@ -4,6 +4,12 @@
     EcComponent = ecount.Class(null, {
         init: function(options){
             if (!!options) {
+              /**
+               * study 아래 호출에 의한 여기에서 this 
+               * * EcComponent.prototype.init.apply(this, arguments);
+               * * this 
+               *   - apply에 호출된 function의 첫번째 param
+               */
                 this.setTemplate(options);
                 this["options"] = {};
                 for( option in options ){
@@ -14,11 +20,6 @@
                     }
                 }
             }
-            //observer pattern
-            // if(this.onClick) {
-            //     debugger;
-            //     options.subscribe("click:" + this.options.pageId + ":" + this.options.id ,this.onClick.bind(this))
-            // }
         },
         render: function(parentNode){
             var $el = this.$el = $(this.template, this.options);
@@ -27,19 +28,6 @@
             if(this.observerObj){
                 this.observerObj.subscribe(this.options.id, function(){console.log("observer")});
             }
-            /**
-             * ::: 고민
-             *  function을 지정해줘야하는데 
-             * 개발자가 원하는 btn에 function을 줘야하는데 
-             * 원하는 동작을 page1에 구현해야한다.........
-             * 
-             */
-
-            // if(this.options){
-            //     for(option in this.options){
-            //         $el[0].setAttribute(option, this.options[option]);
-            //     }
-            // }
             
             parentNode.append($el[0]);
 
