@@ -1,0 +1,291 @@
+<html>
+<head>
+</head>
+<body>
+<section id="stage"></section>
+<script>
+
+  ///
+//모델
+const List = class{
+  constructor(id, title){
+    this.id = id;
+    this.todo = [];
+    this.title = title;
+    List.instances.add(this);
+  }
+};
+List.instances = new Set();
+const Model = class{}
+const List_list_model = class extends Model{
+  //메소드 스타일로 통일
+  getData(){return [...List.instances];}
+};
+const List_new_model = class extends Model{
+  add(title){new List(Date.now() + '' + Math.random(), title);}
+};
+//뷰
+const View = class{
+  static newEl(name){return document.createElement(name);}
+  constructor(controller){this.controller = controller;}
+};
+const List_list_view = class extends View{
+  constructor(...arg){super(...arg);}
+  render(model){
+    const section = View.newEl('section');
+    //목록리스트도 h3로 표시추가
+    section.innerHTML = '<h3>목록리스트</h3>';
+    section.appendChild(model.reduce((ul, v)=>{
+      const li = View.newEl('li');
+      li.innerHTML = v.title;
+      li.addEventListener('click', _=>this.controller.click(v.id));
+      ul.appendChild(li);
+      return ul;
+    }, View.newEl('ul')));
+    const btn = View.newEl('button');
+    btn.innerHTML = "+새 목록";
+    btn.addEventListener('click', _=>this.controller.newList());
+    section.appendChild(btn);
+    return section;
+  }
+};
+const List_new_view = class extends View{
+  constructor(...arg){super(...arg);}
+  render(model){
+    const section = View.newEl('section');
+    section.innerHTML = `<h3>새 목록추가</h3>
+      <input type="text" placeholder="목록명을 입력하세요"/>
+      <button>추가하기</button>
+      <div style="color:red">${model.valiError || ''}</div>`;
+    section.querySelector('button').addEventListener(
+      'click',
+      e=>this.controller.add(e.target.previousElementSibling.value)
+    );
+    return section;
+  }
+};
+//컨트롤러
+const Controller = class{
+  constructor(router, data){
+    this.router = router;
+    this.data = data;
+  }
+  //라우트 방식을 일관성 있게 경로와 데이터로 나눔
+  route(path, data){this.router.route(path, data);}
+ 
+  //result속성에 대해 보다 강력하게 전개함
+  get result(){
+    //result를 읽을 때 설정한 적이 없으면 예외가 발생함
+    if(!this._result) throw "result undefined";
+    return this._result;
+  }
+  set result(v){this._result = v;}
+};
+const List_list = class extends Controller{
+  constructor(...arg){
+    super(...arg);
+    const view = new List_list_view(this);
+    const model = new List_list_model();
+    this.result = view.render(model.getData());
+  }
+  //라우트 방식을 일관성 있게 경로와 데이터로 나눔
+  click(id){this.route("list_view",{id});}
+  newList(){this.route("list_new");}
+};
+const List_new = class extends Controller{
+  constructor(...arg){
+    super(...arg);
+    const view = new List_new_view(this);
+    this.result = view.render(this.data || {});
+  }
+  add(title){
+    if(title){
+      const model = new List_new_model();
+      model.add(title);
+      this.route('list_list');
+    }else{
+      //라우트 방식을 일관성 있게 경로와 데이터로 나눔
+      this.route('list_new", {valiError:"목록명 좀 제대로..."}');
+    }
+  }
+};
+//라우터
+const Router = class{
+  constructor(stage){
+    this.stage = stage;
+    this.router = new Map();
+  }
+  add(target, controller){
+    this.router.set(target, data=>new controller(this, data).result);
+  }
+  //경로와 별도로 데이터를 받아들임
+  route(path, data){
+    this.stage.innerHTML = '<h2>To-do</h2>';
+    this.stage.appendChild(this.router.get(path)(data));
+  }
+};
+const router = new Router(document.getElementById('stage'));
+router.add('list_list', List_list);
+router.add('list_new', List_new);
+router.route('list_list');
+
+
+  //---
+  
+// //모델
+// const List = class{
+//   constructor(id, title){
+//     this.id = id;
+//     this.todo = [];
+//     this.title = title;
+//     List.instances.add(this);
+//   }
+// };
+// List.instances = new Set();
+// const Model = class{}
+// const List_list_model = class extends Model{
+//   get data(){return [...List.instances];}
+// };
+// //뷰
+// const newEl = name=>document.createElement(name);
+// const View = class{
+//   constructor(controller){
+//     this.controller = controller;
+//   }
+// };
+ 
+// const List_list_view = class extends View{
+//   constructor(...arg){
+//     super(...arg);
+//   }
+//   render(model){
+//     //전체를 감쌀 section생성
+//     const section = newEl('section');
+ 
+//     //기존 ul도 section에 넣고
+//     section.appendChild(model.reduce((ul, v)=>{
+//       const li = newEl('li');
+//       li.innerHTML = v.title;
+//       // li.addEventListener('click', _=>this.controller.router(v.id));
+//       li.addEventListener('click', _=>this.controller.route('list_view/' + v.id));
+//       ul.appendChild(li);
+//       return ul;
+//     }, newEl('ul')));
+ 
+//     //section 하단에 새 목록 버튼을 생성한다.
+//     const btn = newEl('button');
+//     btn.innerHTML = "+새 목록";
+//     btn.addEventListener('click', _=>this.controller.newList());
+//     // btn.addEventListener('click', _=>this.controller.route('list_new'));
+//     section.appendChild(btn);
+//     return section;
+//   }
+// };
+
+// //컨트롤러
+// const Controller = class{
+//   constructor(router, data){
+//     this.router = router;
+//     this.data = data || '';
+//   }
+//   router(path) {this.router.route(path);}
+// };
+// const List_list = class extends Controller{
+//   constructor(...arg){
+//     super(...arg);
+//     const view = new List_list_view(this);
+//     const model = new List_list_model();
+//     this.result = view.render(model.getData());
+//   }
+//   //라우트 방식을 일관성 있게 경로와 데이터로 나눔
+//   click(id){this.route("list_view",{id});}
+//   newList(){this.route("list_new");}
+// };
+
+
+// //라우터
+// const Router = class{
+//   constructor(stage){
+//     this.stage = stage;
+//     this.router = new Map();
+//   }
+//   add(target, controller){
+//     this.router.set(target, data=>new controller(this, data).result);
+//   }
+//   route(path){
+//     const [target, data] = path.split('/');
+//     this.stage.innerHTML = '<h2>To-do</h2>';
+//     this.stage.appendChild(this.router.get(target)(data));
+//   }
+// };
+
+
+// //---
+// //List_new_model
+
+// //모델
+// const List_new_model = class extends Model{
+//   add(title){
+//     //실제 목록을 생성한다.
+//     new List(Date.now() + '' + Math.random(), title);
+//   }
+// };
+ 
+// //뷰
+// const List_new_view = class extends View{
+//   constructor(...arg){super(...arg);}
+//   render(model){
+//     const section = newEl('section');
+//     section.innerHTML = `<h3>새 목록추가</h3>
+//       <input type="text" placeholder="목록명을 입력하세요"/>
+//       <button>추가하기</button>
+//       <div style="color:red">${model.valiError || ''}</div>`; //에러출력위치
+//     section.querySelector('button').addEventListener(
+//       'click',
+//       e=>this.controller.add(e.target.previousElementSibling.value)
+//     );
+//     //미리 뷰의 참조를 잡아둔다.
+//     this.section = section;
+//     return section;
+//   }
+
+//   // invalidTitle(){
+//   //   this.section.querySeelctor('input').value = '';
+//   //   this.section.querySelector('div').innerHTML = '목록명을 작성하세요. :D';
+//   // }
+// };
+ 
+// //컨트롤러
+// const List_new = class extends Controller{
+//   constructor(...arg){
+//     super(...arg);
+//     const view = new List_new_view(this);
+//     const model = this.data ? JSON.parse(this.data) : {};
+//     this.result = view.render();
+//   }
+//   add(title){
+//     if(title){
+//       const model = new List_new_model();
+//       model.add(title);
+//       //리스트로 복귀
+//       this.route('list_list');
+//     }else{
+//       //타이틀 값이 제대로 안들어올 때
+//       this.view.invalidTitle();
+//       this.route('list_new/{"valiError":"목록명 다시 작성하세요 :D"}');
+//     }
+//   }
+// };
+ 
+// //---
+// //라우터 생성
+// const router = new Router(document.getElementById('stage'));
+// //라우팅 테이블 설정
+// router.add('list_list', List_list);
+// //라우팅테이블 등록
+// router.add('list_new', List_new);
+// //라우팅 시작!
+// router.route('list_list');
+</script>
+</body>
+</html>

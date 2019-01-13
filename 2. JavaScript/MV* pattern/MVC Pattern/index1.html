@@ -1,0 +1,83 @@
+<html>
+<head>
+</head>
+<body>
+<section id="stage"></section>
+<script>
+//모델
+const List = class{
+  constructor(id, title){
+    this.id = id;
+    this.todo = [];
+    this.title = title;
+    List.instances.add(this);
+  }
+};
+
+List.instances = new Set();
+
+const Model = class{}
+const List_list_model = class extends Model{
+  get data(){return [...List.instances];}
+};
+
+//뷰
+const newEl = name=>document.createElement(name);
+
+const View = class{};
+const List_list_view = class extends View{
+  constructor(controller){
+    super();
+    this.controller = controller;
+  }
+  render(model){
+    return model.reduce((p, v)=>{
+      const li = newEl('li');
+      li.innerHTML = v.title;
+      li.addEventListener('click', _=>this.controller.click(v.id));
+      ul.appendChild(li);
+      return ul;
+    }, newEl('ul'));
+  }
+};
+
+//컨트롤러
+const Controller = class{};
+const List_list = class extends Controller{
+  constructor(router, data){
+    super();
+    this.router = router;
+    const view = new List_list_view(this);
+    const model = new List_list_model();
+    this.result = view.render(model.data);
+  }
+  click(id){this.router.route("list_view/" + id);}
+};
+
+//라우터
+const Router = class{
+  constructor(stage){
+    this.stage = stage;
+    this.router = new Map();
+  }
+  add(target, controller){
+    this.router.set(target, data=>new controller(this, data).result);
+  }
+  route(path){
+    const [target, data] = path.split('/');
+    this.stage.innerHTML = '<h2>To-do</h2>';
+    this.stage.appendChild(this.router.get(target)(data));
+  }
+};
+
+//라우터 생성
+const router = new Router(document.getElementById('stage'));
+
+//라우팅 테이블 설정
+router.add('list_list', List_list);
+
+//라우팅 시작!
+router.route('list_list');
+</script>
+</body>
+</html>

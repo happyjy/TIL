@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" async src="./mvvmPattern.js"></script>
+</head>
+<body>
+        <!--
+          위의 HTML에서 data-bind라는 속성은 뷰모델과 뷰를 바인딩하기 위해 사용됩니다.
+
+          최초 section에 선언된 vm=CustomerViewModel 을 통해 내부의 자식범위가 전부 이 뷰모델의 영향권에 들어간다는 것을 선언해줍니다.
+          select박스에는 바인딩될 뷰모델의 속성을 prop값으로, 옵션에 사용될 속성을 typeOption으로 바인딩했습니다.
+          그 외의 input들은 prop를 이용해 뷰모델의 속성을 바인딩하고
+          밸리데이션 에러를 출력할 div들에게는 validate를 이용해서 어떤 속성의 밸리데이션을 표시할지 힌트를 줍니다.
+
+          이렇게 순수한 HTML이 뷰인 상태에서 뷰모델과 자동으로 바인딩해주는 장치가 필요할 것입니다. 이러한 바인딩처리기를 차근차근 구현해보죠.
+        -->
+<style>.err{color:red;font-size:11px}</style>
+<section id="stage" data-bind="vm=CustomerViewModel">
+
+    고객 종류: 
+    <select data-bind="prop=type,option=typeOption"></select>
+    <div class="err" data-bind="validate=type"></div>
+
+    성: 
+    <input type="text" data-bind="prop=lastName">
+    <div class="err" data-bind="validate=lastName"></div>
+
+    이름: 
+    <input type="text" data-bind="prop=firstName">
+    <div class="err" data-bind="validate=firstName"></div>
+
+    이메일: 
+    <input type="text" data-bind="prop=email">
+    <div class="err" data-bind="validate=email"></div>
+
+    <button name="save" data-bind="action=save">저장하기</button>
+</section>
+
+        
+    
+</body>
+</html>
