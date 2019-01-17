@@ -8,6 +8,7 @@ const List = class{
   }
 };
 List.instances = new Set();
+
 const Model = class{}
 const List_list_model = class extends Model{
   //메소드 스타일로 통일
