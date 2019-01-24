@@ -9,6 +9,15 @@
 <body>
     <script>
         (function(){
+
+            /*
+                STUDY1
+                # CASE1, CASE2비교
+                  * CASE1 : 인스턴스의 상태를 프로토타입에 저장한경우 (모든 인스턴스가 상태 공유)
+                  * CASE2 : 인스턴스의 상태를 인스턴스 객체에 저장한 경우
+                
+            */
+            //[CASE1]
             function Tree(x){
                 this.value = x;
             }
@@ -36,6 +45,7 @@
             debugger;
             //--
 
+            //[CASE2]
             function Tree(x){
                 this.value = x;
                 this.children = []; //인스턴스 상태
