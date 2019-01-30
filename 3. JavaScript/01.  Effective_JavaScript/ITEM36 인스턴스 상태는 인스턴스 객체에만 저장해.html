@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (function(){
+
+            /*
+                STUDY1
+                # CASE1, CASE2비교
+                  * CASE1 : 인스턴스의 상태를 프로토타입에 저장한경우 (모든 인스턴스가 상태 공유)
+                  * CASE2 : 인스턴스의 상태를 인스턴스 객체에 저장한 경우
+                
+            */
+            //[CASE1]
+            function Tree(x){
+                this.value = x;
+            }
+
+            Tree.prototype = {
+                children: [],//반드시 인스턴스 상태여야 함!
+                addChild: function(x){
+                    this.children.push(x);
+                }
+            };
+
+            var left = new Tree(2);
+            left.addChild(1);
+            left.addChild(3);
+
+            var right = new Tree(6);
+            right.addChild(5);
+            right.addChild(7);
+
+            var top = new Tree(4);
+            top.addChild(left);
+            top.addChild(right);
+            top.children; // [1, 3, 5, 7, left, rigtt]
+
+            debugger;
+            //--
+
+            //[CASE2]
+            function Tree(x){
+                this.value = x;
+                this.children = []; //인스턴스 상태
+            }
+            Tree.prototype = {
+                addChild: function(x){
+                    this.children.push(x);
+                }
+            };
+
+            var left = new Tree(2);
+            left.addChild(1);
+            left.addChild(3);
+
+            var right = new Tree(6);
+            right.addChild(5);
+            right.addChild(7);
+
+            var top = new Tree(4);
+            top.addChild(left);
+            top.addChild(right);
+            top.children; 
+
+            //결과
+            left.children       //[1,3]
+            right.children      //[5,7]
+            top.children        //[Tree, Tree] => {value: 2, children: Array(2)}, {value: 6, children: Array(2)}
+
+            debugger;
+
+
+        })()
+
+    </script>
+</body>
+</html>
