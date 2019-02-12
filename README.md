@@ -30,6 +30,8 @@ etc
 * (20180828) ~~no duple & convert object_array_string type~~
 
 # JavaScript
+* (등록: 20190212) Effective Javascript
+* (등록: 20190212) Javacript Design pattern
 * (20180920) bind, apply, call
 * (20181009)~~(20180920) closure~~ 
 * (20180902) hoisting
