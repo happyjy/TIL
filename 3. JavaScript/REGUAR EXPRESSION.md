@@ -41,4 +41,6 @@ str.replace(regex, '')
 
 ### ref 
 https://blog.sonim1.com/206 
+https://regexone.com/ : Regular Expression Lesson
+https://regex101.com/ : Regular Expression Test
 
