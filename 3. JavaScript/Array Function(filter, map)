@@ -1,0 +1,14 @@
+# filter
+> Array 함수로 filter 함수 안에 test를 통과한 Array elements를 Array로 반환
+
+# map
+> Array 함수로 모든 elements가 map의 function의 결과값을 반환
+
+
+
+# filter, map을 동시에 사용 원하는 값으로 가공할 수 있다.
+var returnValue = this.getState(allComp).filter(function(item){
+    return !$.isEmpty(item["opt.selectedItemId"]);
+}).map(function(item){
+    return item["opt.selectedItemId"];
+});
