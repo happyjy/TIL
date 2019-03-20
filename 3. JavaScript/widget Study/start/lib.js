@@ -15,13 +15,3 @@ var Class = function(parent, prototype){
     }
     return fn;
 };
-
-/**
- * 
- * 컴포넌트 개발
-
-
-
- * 
- * 
- */
