@@ -45,7 +45,7 @@ etc
 * synchronous(setTimeout, setInterval)
 * server-side rendering &(react, vue)
 * ajax & server connection 
-* revets로 getter, setter 구현 분석한것 정리해서 올리기
+* revets.js로 getter, setter 구현 분석한것 정리해서 올리기
 
 # FW
 * 폴리머 재사용 컴포넌트 만들어 보기
