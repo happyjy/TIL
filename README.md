@@ -30,6 +30,8 @@ etc
 * (20180828) ~~no duple & convert object_array_string type~~
 
 # JavaScript
+* (등록: 20190510) scope, closure
+  - you don't know js에서 설명을 컴파일 관점에서 설명해주고 있다. (engine, scope이 존재)
 * (등록: 20190212) Effective Javascript
 * (등록: 20190212) Javacript Design pattern
 * (20180920) bind, apply, call
