@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <span id="myDomElement"></span>
+
+    <script>
+        function Binding(b){
+            _this = this;
+            this.element = b.element;
+            this.value = b.object[b.property];
+            this.attribute = b.attribute;
+            this.valueGetter = function(){
+                return _this.value;
+            }
+            this.valueSetter = function(val){
+                _this.value = val;
+                _this.element[_this.attribute] = val;
+            }
+
+            /*
+                #STUDY POINT1
+                Object.defineProperty(obj, prop, decriptor)
+                Object.defineProperty의 get, set 
+
+                Object.defineProperty static method를 사용하게 되면
+                설명한 객체의 프로퍼티는 기본적으로 readonly가 된다. 
+                하지만 setter function을 설정하면 설정한 객체의 property를 write할 수 있다.
+
+                * 아래 obj.a = 4123; 코드의 의미는
+                Object.defineProperty로 설정되어 있기에 
+                obj.a = 4123은 set로 설정된 function this.valueSetter에 의해 
+                this.element에 4123이 세팅된다.
+                
+            */
+            Object.defineProperty(b.object, b.property, {
+                // get: this.valueGetter,
+                set: this.valueSetter
+                // set(a) { this.valueSetter(a) } 
+            })
+
+            // b.object[b.property] = this.value;
+            this.element[this.attribute] = this.value;            
+        }
+
+        var obj = {a:'123'}
+        var myElement = document.getElementById("myDomElement");
+        new Binding({
+            object: obj,
+            property: "a",
+            element: myElement,
+            attribute: "innerHTML"
+        })
+
+
+        /*
+            아래 코드는 obj.a 객체를 호출하면 
+            Binding function에 Ojbect.defineProperty로 정의한 valueSetter를 호출하게 된다. 
+            
+            valueSetter를 호출하게 되면 docuemnts에 넘겨준 value를 세팅하는 로직이 있어 one-way binding이 구현 된다.
+        */
+        debugger;
+        obj.a = 4123;
+
+    </script>
+    
+</body>
+</html>
