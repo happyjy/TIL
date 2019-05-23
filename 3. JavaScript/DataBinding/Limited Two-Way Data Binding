@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+        <input type=text id="myText"/>
+        <span id="spanText"></span>
+
+
+        <script>
+                function Binding(b){
+                    _this = this;
+                    this.element = b.element;
+                    this.value = b.object[b.property];
+                    this.attribute = b.attribute;
+    
+                    this.valueGetter = function(){
+                        return _this.value;
+                    }
+                    
+                    this.valueSetter = function(val){
+                        _this.value = val;
+                        _this.element[_this.attribute] = val;
+                    }
+    
+                    //study point
+                    if(b.event){
+                        this.element.addEventListener(b.event, function(event){
+                            _this.value = _this.element[_this.attribute];
+                            console.log("### _this.value : ", _this.value);
+                        })        
+                    }
+    
+                    Object.defineProperty(b.object, b.property, {
+                        get: this.valueGetter,
+                        set: this.valueSetter
+                    });
+    
+                    b.object[b.property] = this.value;
+                    this.element[this.attribute] = this.value;
+    
+                }
+    
+                var obj = {a:123};
+                var myElement = document.getElementById("myText");
+                new Binding({
+                    object: obj,
+                    property: "a",
+                    element: myElement,
+                    attribute: "value",
+                    event: "keyup"
+                })
+    
+                obj.a = 123123123;
+            </script>
+    
+</body>
+</html>
