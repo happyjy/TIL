@@ -35,18 +35,18 @@
       //2. Bubble sorting
       //버블 정렬을 서로 이웃한 데이터들을 비교하며 가장 큰 데이터를 가장 뒤로 보내며 정렬하는 방식
       function BubbleSort(arr){
-        var len = arr.length;
-        
-        for( var outer = len; outer > 1; --outer ){
+        //var len = arr.length;
+    
+        for( var outer = arr.length; outer > 1; --outer ){
           for( var inner = 0; inner < outer; ++inner ){
-            if( arr[inner] > [inner + 1]){
-              swap(arr, inner, inner+1);
+            if( arr[inner] > arr[inner + 1]){
+              swap(arr, inner, inner + 1);
             }
           }
         }
 
         return arr;
-      }
+      };
 
       console.log("### QuickSort: " + QuickSort(unSortedNumber.slice()));
       console.log("### BubbleSort: "  + BubbleSort(unSortedNumber.slice()));
