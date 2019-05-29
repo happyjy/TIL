@@ -1,58 +1,161 @@
-<html>
-  <head></head>
-  <body>
-    <script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
 
-      var unSortedNumber = [53,235,23,52,23,78,321,30581,3,316,34];
-
-      function swap(arr, idx1, idx2){
-        var temp = arr[idx1];
-        arr[idx1] = arr[idx2];
-        arr[idx2] = temp;
-      }
-
-      function QuickSort(arr){
-        if(arr.length==0){
-          return [];
-        }
-
-        var middle = arr[0];
-        var len = arr.length;
-        var left = [], right = [];
-
-        for(var i = 1; i < len; ++i){
-          if( arr[i] < middle ){
-            left.push(arr[i]);
-          }else{
-            right.push(arr[i]);
-          }
-        }
-
-        return QuickSort(left).concat(middle, QuickSort(right));
-      }
-
-
-      //2. Bubble sorting
-      //버블 정렬을 서로 이웃한 데이터들을 비교하며 가장 큰 데이터를 가장 뒤로 보내며 정렬하는 방식
-      function BubbleSort(arr){
-        //var len = arr.length;
     
-        for( var outer = arr.length; outer > 1; --outer ){
-          for( var inner = 0; inner < outer; ++inner ){
-            if( arr[inner] > arr[inner + 1]){
-              swap(arr, inner, inner + 1);
-            }
-          }
+    
+    <script>
+        /*
+            # Sorting algorithms     
+            
+            QuickSort
+            BubbleSort
+            SelectionSort
+            MergeSort
+            InsertionSort
+        */
+
+        // var unSortedArr = [4365,78,234,1,4,6,13,7,38,2,45,12,341];
+        var unSortedArr = [9,8,7,6,5];
+
+        function swap(arr, index1, index2){
+            var temp = arr[index1];
+            arr[index1] = arr[index2];
+            arr[index2] = temp;
         }
 
-        return arr;
-      };
+        //1
+        //분할 정복, 재귀를 통해 리스트를 재정렬
+        function QuickSort(arr){
+            if(arr.length == 0){
+                return [];
+            }
 
-      console.log("### QuickSort: " + QuickSort(unSortedNumber.slice()));
-      console.log("### BubbleSort: "  + BubbleSort(unSortedNumber.slice()));
+            var middle = arr[0];
+            var len = arr.length;
+            var left = [], right = [];
 
+            for(var i = 1; i < len; ++i){   //TODO 수정시도
+                if(arr[i] < middle){
+                    left.push(arr[i])
+                }else{
+                    right.push(arr[i])
+                }
+            }
+
+            return QuickSort(left).concat(middle, QuickSort(right));
+        }
+
+        //서로 이웃한 데이터들을 비교하며 가장 큰 데이터를 가장 뒤로 보내며 정렬
+        function BubbleSort(arr){
+            var len = arr.length;
+
+            for(var outer = len; outer > 1; --outer){    //TODO 수정시도
+                for(var inner = 0; inner < outer; ++inner){
+                    if( arr[inner] > arr[inner + 1]){
+                        swap(arr, inner, inner + 1);
+                    }
+                }
+            }
+
+            return arr;
+        }
+
+        //3
+        //정렬되지 않은 데이터들에 대해 가장 작은 데이터를 찾아 가장 앞 데이터와 교환해 나가는 방식
+        // One by one move boundary of unsorted subarray 
+        function SelectionSort(arr){
+            var len = arr.length;
+            var min_idx;
+
+            for(var i = 0; i < len-1; i++){
+                // Find the minimum element in unsorted array 
+                var min_idx = i;
+                for(var j = i+1; j < len; j++){
+                    if( arr[j] < arr[min_idx] ){
+                        min_idx = j;
+                    }
+                    // Swap the found minimum element with the first 
+                    swap(arr, i, min_idx);
+                }
+            }
+            return arr;
+        }
+   
+
+        //4
+        //퀵정렬과 마찬가지로 분할 정복 알고리즘중 하나
+        // https://hackernoon.com/programming-with-js-merge-sort-deb677b777c0
+        // Split the array into halves and merge them recursively 
+        function MergeSort (arr) {
+            if (arr.length === 1) {
+                // return once we hit an array with a single item
+                return arr
+            }
+
+            const middle = Math.floor(arr.length / 2) // get the middle item of the array rounded down
+            const left = arr.slice(0, middle) // items on the left side
+            const right = arr.slice(middle) // items on the right side
+
+            return merge(
+                MergeSort(left),
+                MergeSort(right)
+            )
+        }
+
+        // compare the arrays item by item and return the concatenated result
+        function merge (left, right) {
+            let result = []
+            let indexLeft = 0
+            let indexRight = 0
+
+            while (indexLeft < left.length && indexRight < right.length) {
+                if (left[indexLeft] < right[indexRight]) {
+                    result.push(left[indexLeft])
+                    indexLeft++
+                } else {
+                    result.push(right[indexRight])
+                    indexRight++
+                }
+            }
+
+            return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight))
+        }
+
+        //5
+        //아직 정렬되지 않은 임의의 데이터를 이미 정렬된 부분의 적절한 위치에 삽입해 가며 정렬하는 방식
+        function InsertionSort(arr){
+            var len = arr.length;
+            var temp, inner;
+
+            for(var outer = 1; outer < len; ++outer){
+                temp = arr[outer];
+                inner = outer;
+
+                while(inner > 0 && arr[inner-1] >= temp){
+                    arr[inner] = arr[inner-1];
+                    --inner;
+                }
+
+                arr[inner] = temp;
+            }
+            return arr;
+        }
+
+console.log("### QuickSort: " + QuickSort(unSortedArr.slice(0)));
+console.log("### BubbleSort: " + BubbleSort(unSortedArr.slice(0)));
+console.log("### SelectionSort: " + SelectionSort(unSortedArr.slice(0)));
+console.log("### MergeSort: " + MergeSort(unSortedArr.slice(0)));
+console.log("### InsertionSort: " + InsertionSort(unSortedArr.slice(0)));
+    
 
 
     </script>
-  </body>
+</body>
 </html>
