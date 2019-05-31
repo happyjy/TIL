@@ -1,0 +1,30 @@
+<!--
+    #STUDY1
+    * you must specify the encapsulation mode for the shadow DOM tree by passing an object as an argument, otherwise a TypeError is thrown. The object must have a mode property with a value of either open or closed.
+
+    #STUDY2
+    * But if the mode property has a value of closed, attempting to use JavaScript from outside the root to access the elements of the shadow root throws a TypeError:
+    * mode를 closed로 한다면 querySelector()이 TypeError를 발생한다.
+-->
+
+
+<div><p>Light DOM</p></div>
+<div id="host"></div>
+ 
+<script>
+  const elem = document.querySelector('#host');
+ 
+  // attach an open shadow root to #host
+  // #STUDY2
+  const shadowRoot = elem.attachShadow({mode: 'open'});
+  
+//   const shadowRoot = elem.attachShadow({mode: 'closed'});
+//   console.log(shadowRoot.mode);    // => closed
+
+  shadowRoot.innerHTML = `<p>Shadow DOM</p>`;
+  // Nodes of an open shadow DOM are accessible
+  // from outside the shadow root
+  // #STUDY1
+  elem.shadowRoot.querySelector('p').innerText = 'Changed from outside the shadow root';
+  elem.shadowRoot.querySelector('p').style.color = 'red';
+</script>
