@@ -1,0 +1,38 @@
+<!--
+    # Hosting a shadow DOM on a custom element
+    * A custom element created by the Custom Elements API may host a shadow DOM like any other element. Consider the following example:
+
+    # STUDY1
+    * This code creates an autonomous custom element that hosts a shadow DOM. 
+    
+    * 1, 2 parameter 
+      - first argument and a class object as its second argument
+      - second argument : Keep in mind that a valid custom element cannot be a single word and must have a hyphen (-) in its name. For example, myelement cannot be used as a name for a custom element and will throw a DOMException error.
+    * The class extends HTMLElement and defines the behavior of the element.
+    *
+
+    # STUDY2
+    * Inside the constructor, super() is used to establish a prototype chain, and a shadow root is attached to the custom element. 
+-->
+<my-element></my-element>
+<script>
+  class MyElement extends HTMLElement {
+    constructor() {
+ 
+      // must be called before the this keyword
+      // SUTDY2
+      super();
+ 
+      // attach a shadow root to <my-element>
+      const shadowRoot = this.attachShadow({mode: 'open'});
+ 
+      shadowRoot.innerHTML = `
+        <style>p {color: red}</style>
+        <p>Hello</p>`;
+    }
+  }
+ 
+  // register a custom element on the page
+  //STUDY1
+  customElements.define('my-element', MyElement);
+</script>
