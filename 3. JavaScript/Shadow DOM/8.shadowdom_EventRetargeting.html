@@ -1,0 +1,53 @@
+<!--
+    An event triggered within a shadow DOM may cross the shadow boundary and bubble up the light DOM; 
+    however, the value of Event.
+    target is automatically changed 
+        so it looks as if the event was originated from the host element that contains the shadow tree rather than the actual element.
+-->
+
+<!-- <div id="host"></div>
+ 
+<script>
+  const elem = document.querySelector('#host');
+  const shadowRoot = elem.attachShadow({mode: 'open'});
+ 
+  shadowRoot.innerHTML = `
+    <ul>
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+    <ul>
+    `;
+ 
+  document.addEventListener('click', (event) => {
+    console.log(event);
+    console.log(event.target);
+  }, false);
+</script> -->
+
+
+<!--
+    Note that not all events propagate out of the shadow DOM. 
+    
+    Those that do are retargeted, but others are simply ignored. 
+    If you are using custom events, you’ll need to use the composed: true flag,
+    otherwise the event won’t bubble out of the shadow boundary.
+-->
+
+<div id="host"></div>
+ 
+<script>
+  const elem = document.querySelector('#host');
+  const shadowRoot = elem.attachShadow({mode: 'open'});
+ 
+  shadowRoot.innerHTML = `
+    <ul>
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+    </ul>`;
+   
+  shadowRoot.querySelector('ul').addEventListener('click', (event) => {
+    console.log(event.target);
+  }, false);  
+</script>
