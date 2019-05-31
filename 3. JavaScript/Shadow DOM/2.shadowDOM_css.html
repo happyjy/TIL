@@ -1,0 +1,37 @@
+<!-- 
+
+    #STUDY0
+    * elements에 shadow root를 붙이려면 'Element.attachShadow()' 함수가 필요하다.
+
+    #STUDY1
+    * Light DOM과 ShadoW DOM은 서로 다른 scope을 가지고 있어서 
+    style이 서로에게 영향을 미치지 않고 있습니다.
+
+    #STUDY2    
+    * elment의 shadow root reference를 얻을 수 있다. 
+        
+ -->
+
+
+<div><p>Light DOM</p></div>
+<div id="host"></div>
+ 
+<script>
+  //STUDY0
+  const elem = document.querySelector('#host');
+ 
+  // attach a shadow root to #host
+  const shadowRoot = elem.attachShadow({mode: 'open'});
+ 
+  // set the HTML contained within the shadow root
+  //STUDY1
+  shadowRoot.innerHTML = `<p>Shadow DOM</p> <style>p {color: blue}</style>`;
+
+  //STUDY2
+  console.log(shadowRoot.host);    // => <div id="host"></div>
+</script>
+ 
+<style>
+  /* STUDY1 */
+  p {color: red}
+</style>
