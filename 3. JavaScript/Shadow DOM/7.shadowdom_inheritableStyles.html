@@ -1,0 +1,53 @@
+<!-- 
+
+# Certain properties, such as color, background, and font-family, pass the shadow boundary and apply to the shadow tree. So, compared to an iframe, a shadow DOM is not a very strong barrier.
+
+-->
+<!-- <style>
+    div {
+        font-size: 25px;
+        text-transform: uppercase;
+        color: rgb(168, 65, 65);
+    }
+</style>
+
+<div><p>Light DOM</p></div>
+<div id="host"></div>
+
+<script>
+    const elem = document.querySelector('#host');
+    const shadowRoot = elem.attachShadow({mode: 'open'});
+
+    shadowRoot.innerHTML = `<p>Shadow DOM</p>`;
+</script> -->
+
+
+
+<!--
+    The workaround is simple: reset inheritable styles to their initial value by declaring all: initial, like this:
+-->
+
+<style>
+    div {
+        font-size: 25px;
+        text-transform: uppercase;
+        color: red;
+    }
+</style>
+
+<div><p>Light DOM</p></div>
+<div id="host"></div>
+
+<script>
+    const elem = document.querySelector('#host');
+    const shadowRoot = elem.attachShadow({mode: 'open'});
+
+    shadowRoot.innerHTML = `
+        <p>Shadow DOM</p>
+        <style>
+        :host p {
+            all: initial;
+            color: blue;        //내가 추가해봄 
+        }
+        </style>`;
+</script>
