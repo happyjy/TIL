@@ -31,7 +31,7 @@
   
   var wan = {
     age: 31,
-    foo: ken.foo == foo: function (){console.log(this.age)}
+    foo: ken.foo // foo: function (){console.log(this.age)}
    
   } 
   
@@ -63,8 +63,8 @@
  
   foo();
   
-  foo.call(ken); //31 
-  foo.apply(wan);  //35
+  foo.call(ken); //35
+  foo.apply(wan);  //31
   ```
 
   
@@ -74,7 +74,7 @@
   
   function foo(a,b,c,d,e){
     console.log(this.age); //ken object value
-    console.log(arguments); //1,2,3,4,5
+    console.log(arguments);  //[1,2,3,4,5] : 유사배열
   }
   
   var ken = {
@@ -82,7 +82,7 @@
   }
   
   foo.call(ken, 1,2,3,4,5);
-  //foo.apply(ken, [1,2,3,4,5]);  //[1,2,3,4,5] : 유사배열
+  foo.apply(ken, [1,2,3,4,5]); 
   ``` 
 
   ### 3.3 예제  
@@ -91,7 +91,7 @@
   
   function foo(){
    console.log(this.age);   // 34
-   console.log(arguments);  // 1,2,3,4,5
+   console.log(arguments);  // [1,2,3,4,5] : 유사배열
   }
   
   var ken = {
@@ -135,8 +135,8 @@
 
   4.3 예제3
 ``` js
-  : A function used with 'new' keyword = Constructor function(생성자 함수)
-  : 생성자 함수명 첫번째 문자는 대문자로 한다.
+  // A function used with 'new' keyword = Constructor function(생성자 함수)
+  // 생성자 함수명 첫번째 문자는 대문자로 한다.
   function Person(name, age){
    this.name = name;
    this.age = age;
