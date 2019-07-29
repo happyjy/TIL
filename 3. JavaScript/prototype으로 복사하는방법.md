@@ -10,7 +10,7 @@ function Class(parent, prototype) {
 		this.init.apply(this, arguments);	// A
     }	
     
-	  // B
+    // B
     fn.prototype = new parent();
     for (var p in prototype) {
         fn.prototype[p] = prototype[p];
@@ -34,9 +34,9 @@ var child = Class(parent, {
 
 var child1 = new child("child1", '10', 'man');	//D
 console.log(child1.print());
-var child2 = new child("child2", '10');			//D
+var child2 = new child("child2", '10');		//D
 console.log(child2.print());
-var child3 = new child("child3");				//D
+var child3 = new child("child3");		//D
 console.log(child3.print());
 ```
 ## 상속과, apply에 대한 고찰
@@ -44,19 +44,19 @@ console.log(child3.print());
 : 이때 new로 생성자 함수를 만들때 불규칙적인 인자를 넘길 수 있다.
 이 문제를 apply를 사용해서 
 
-A : 생성자 함수로 만들어진 인스턴스에 init이름으로 된 function을 상속받는 코드가 있다. 
-B : C에 선언된 객체를 fn function prototype으로 복사한다.(상속)
-C : Class function으로 child 객체를 생성한다.
-D : child function에 인자를 넘긴다. 이때 this.init.apply(this, arguments);가 수행이된다.
+A : 생성자 함수로 만들어진 인스턴스에 init이름으로 된 function을 상속받는 코드가 있다.   
+B : C에 선언된 객체를 fn function prototype으로 복사한다.(상속)  
+C : Class function으로 child 객체를 생성한다.  
+D : child function에 인자를 넘긴다. 이때 this.init.apply(this, arguments);가 수행이된다.  
 
-*** 생각 follow
-- child를 생성자 함수로 만들때 인자를 규칙적으로 넘기지 않을때가 있다. ("D" 코드와 같이)
+* 생각 follow
+	- child를 생성자 함수로 만들때 인자를 규칙적으로 넘기지 않을때가 있다. ("D" 코드와 같이)
 그래서 init을 호출할때 정해지지 않은 인자를  넘겨줘야한다.
 
-- 호출되어지는 init line : C
+	- 호출되어지는 init line : C
 : "C" 부근에 있는 init은 "A"라인의 코드에 의해서 호출이된다. 
 : 이때 갯수가 정해지지 않은 인자를 넘겨줘야한다.
 : 그래서 "A"라인 코드와 같이 apply, arguments개념을 사용해서 코드를 작성할 수 있다.
 
-- init을 호출하는 line : A  
+	- init을 호출하는 line : A  
 : init은 객체는 생성자 함수를 실행할때 선언한 init("C" 부근의 init)이 fn.prototype에 선언이 된다.
