@@ -46,5 +46,6 @@ console.log(child3.print());
       : == <u>부모 function의 prototype을 자식 function prototype에 복사한다.</u>  
   - C : Class function 두번째 param으로 child 객체를 생성한다.
       : "C" 부근에 있는 init은 "A"라인의 코드에 의해서 호출이된다.(생성자함수에의해서 생성자==A 가 호출)  
-  - D : child function에 인자를 넘긴다. 이때 <u>생성자가 수행된다.( this.init.apply(this, arguments); ) </u>  
-      : 이유 - child funciton은 A code가 있는 fn funciton이기 때문이다.)
+  - D : **생성자함수** - child function(==fn function; B부분 근처)에 인자를 넘긴다.  
+      : <u>이때 child function은 fn function이기 때문에 생성자가 수행된다.( this.init.apply(this, arguments); ) </u>
+      
