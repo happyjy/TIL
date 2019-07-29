@@ -25,11 +25,11 @@ var child = Class(parent, {
 		this.age = age;
 		this.gender = gender;
 	}, 
-    print: function () {
-        console.log("this.name :" + this.name);
+        print: function () {
+        	console.log("this.name :" + this.name);
 		console.log("this.age :" + this.age);
 		console.log("this.gender :" + this.gender);
-    }	
+    	}	
 });
 
 var child1 = new child("child1", '10', 'man');	//D
@@ -40,8 +40,8 @@ var child3 = new child("child3");		//D
 console.log(child3.print());
 ```
 ## 상속과, apply에 대한 고찰
-: 상속 받는 Class fucntion을 만든다.
-: 이때 new로 생성자 함수를 만들때 불규칙적인 인자를 넘길 수 있다.
+> 상속 받는 Class fucntion을 만든다.
+> 이때 new로 생성자 함수를 만들때 불규칙적인 인자를 넘길 수 있다.
 이 문제를 apply를 사용해서 
 
 A : 생성자 함수로 만들어진 인스턴스에 init이름으로 된 function을 상속받는 코드가 있다.   
