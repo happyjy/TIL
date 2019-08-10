@@ -2,17 +2,16 @@
 <html>
 <head>
 <script>
-function showDetails(animal) {
-  var animalType = animal.getAttribute("data-animal-type");
-  debugger;
-  alert("The " + animal.innerHTML + " is a " + animalType + ".");
-}
+  function showDetails(animal) {
+    var animalType = animal.getAttribute("data-animal-type");
+    alert("The " + animal.innerHTML + " is a " + animalType + ".");
+  }
 </script>
 </head>
 <body>
 
-<h1>Species</h1>
-<p>Click on a species to see what type it is:</p>
+<h1>새종류</h1>
+<p>클릭하면 선택한 elementsd에 설정된 새종류가 alert창으로 뜬다.</p>
 
 <ul>
   <li onclick="showDetails(this)" id="owl" data-animal-type="bird"

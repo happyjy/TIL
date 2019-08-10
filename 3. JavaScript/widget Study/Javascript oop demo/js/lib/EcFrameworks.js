@@ -45,7 +45,9 @@
         return {}
     };
 
+    debugger;
     ecount.Class = function(parent, prototype) {	
+
         var Klass = function () {		
             this.init.apply(this, arguments);
             return this;  

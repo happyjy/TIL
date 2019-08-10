@@ -1,6 +1,6 @@
 
 # 함수 실행 방법 별 this context
->  this를 사용하는 해당 삼수를 어떻게 실행하느냐에 따라 바뀐다. 
+>  this를 사용하는 해당 함수를 어떻게 실행하느냐에 따라 바뀐다. 
 >  1. regular runction call
 >  2. dot notation
 >  3. call, apply, bind
