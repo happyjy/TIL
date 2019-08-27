@@ -1,0 +1,32 @@
+{
+  "name": "tddwithtodoapp",
+  "version": "0.0.1",
+  "description": "Tdd_with_todoapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "webpack-dev-server --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/github.com/happyjy.git"
+  },
+  "author": "jyoon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/github.com/happyjy/issues"
+  },
+  "homepage": "https://github.com/github.com/happyjy#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
+}
