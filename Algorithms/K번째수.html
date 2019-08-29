@@ -49,6 +49,8 @@
 
             console.log(solution(arr, commands));
 
+
+            //세번째 시도 케이스
             function solution(array, commands) {
                 return commands.map( v => {
                     return slicedSorted = array.slice(v[0]-1, v[1]).sort( (b,c) => b-c).slice(v[2]-1, v[2])[0];
@@ -56,14 +58,18 @@
                 });
             }
 
-/*             function solution(array, commands) {
+/*             
+            //두번째 시도 케이스
+            function solution(array, commands) {
                 return commands.map( v => {
                     var slicedSorted = array.slice(v[0]-1, v[1]).sort( (b,c) => b-c);
                     return slicedSorted[v[2]-1];
                 });
             } */
 
-/*             function solution(array, commands) {
+/*             
+            //첫번째 시도 케이스
+            function solution(array, commands) {
                 var answer = [];
 
                 for( var i=0; i < commands.length; i++ ){
