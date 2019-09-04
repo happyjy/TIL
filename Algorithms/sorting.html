@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sorting</title>
+</head>
+<body>
+    <script>
+
+      var month = ['March', 'Jan', 'Feb', 'Dec'];
+      month.sort();
+      console.log("### sorted month: ", month);
+
+      var array1 = [1, 30, 4, 21, 100000];
+      array1.sort();
+      console.log("### sorted array1: ", array1)
+
+      //sued with funciton expressions
+      var numbers = [4, 2, 1, 5, 3];
+      numbers.sort( (a, b) => a - b );    //오름차순
+      console.log("### 오름차순 sorted numbers with function expressions:", numbers);
+      numbers.sort( (a, b) => b - a );    //내림차순
+      console.log("### 내림차순 sorted numbers with function expressions:", numbers);
+
+
+      var items = [
+        { name: 'Hwang', value: 26},
+        { name: 'Park', value: 32},
+        { name: 'Eun', value: 34},
+        { name: 'Jay', value: 23},
+      ];
+
+      items.sort( (a, b) => a.value - b.value );
+      console.log("### 정렬 tiems.value 기준으로: ", items);
+
+      items.sort( (a, b) => {
+        var nameA = a.name.toUpperCase();
+        var nameB = b.name.toUpperCase();
+
+        if(nameA < nameB){
+          console.log("-1")
+          return -1;
+        }
+
+        if(nameA > nameB){
+          console.log("1")
+          return 1;
+        }
+
+        console.log("0")
+        return 0;
+
+      })
+      console.log("### 정렬 tiems.name 기준으로: ", items);
+
+    </script>
+</body>
+</html>
