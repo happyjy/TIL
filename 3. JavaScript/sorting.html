@@ -9,6 +9,26 @@
 <body>
     <script>
 
+
+      /*
+        0. Syntax
+          - arr.sort([compareFunction])
+            : Specifies a function that defines the sort order.
+            If omitted, the array elements are converted to strings,
+            then sorted according to each character's Unicode code point value
+            : firstEl
+              The first element for comparison.
+            : secondEl
+              The second element for comparison.
+
+        0. sorting의 기준
+          - comparing their sequences of 'UTF-16 code' units values
+      */
+
+
+      /*
+        1. sort()  정렬
+      */
       var month = ['March', 'Jan', 'Feb', 'Dec'];
       month.sort();
       console.log("### sorted month: ", month);
@@ -17,7 +37,11 @@
       array1.sort();
       console.log("### sorted array1: ", array1)
 
-      //sued with funciton expressions
+
+
+      /*
+        2. function expressions를 사용
+      */
       var numbers = [4, 2, 1, 5, 3];
       numbers.sort( (a, b) => a - b );    //오름차순
       console.log("### 오름차순 sorted numbers with function expressions:", numbers);
@@ -33,7 +57,7 @@
       ];
 
       items.sort( (a, b) => a.value - b.value );
-      console.log("### 정렬 tiems.value 기준으로: ", items);
+      console.log("### 정렬 items.value 기준으로: ", items);
 
       items.sort( (a, b) => {
         var nameA = a.name.toUpperCase();
@@ -53,7 +77,7 @@
         return 0;
 
       })
-      console.log("### 정렬 tiems.name 기준으로: ", items);
+      console.log("### 정렬 items.name 기준으로: ", items);
 
     </script>
 </body>
