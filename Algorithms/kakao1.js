@@ -71,20 +71,20 @@
     // for(var j=1; j<cmpNum; j++){
       //if(s[cmpChrLength])
     var duplChr = 1;
-    var cmpchrLastIdx = cmpChrLength;
+    var cmpChrLastIdx = cmpChrLength;
 
     //비교할 문자열 길이만큼 비교
     //??? === 기준 좌,우 연산자를 비교할때 중괄호를 하지 않으면 false 왜지? 
-    if ( (!!str.slice(0, cmpchrLastIdx) && str.slice(0, cmpchrLastIdx))
-          === (!!str.slice(cmpchrLastIdx, (cmpchrLastIdx)*2) && str.slice(cmpchrLastIdx, (cmpchrLastIdx)*2)) ) {
+    if ( (!!str.slice(0, cmpChrLastIdx) && str.slice(0, cmpChrLastIdx))
+          === (!!str.slice(cmpChrLastIdx, (cmpChrLastIdx)*2) && str.slice(cmpChrLastIdx, (cmpChrLastIdx)*2)) ) {
       //aaabb => 3a2b 자를 문자열 단위 1
       //재귀 호출을 사용하다 보니 duplChr scope가 공유가 안되서. 문제 
       //중복 횟수 + 중복문자 + 검사한 idx 이후 (cmpChrLength*2부터 문자길이)
       // var zipTargetStr = duplChr.toString()+str.slice(0,cmpChrLength)+str.slice(cmpChrLength*2, str.length);
       var zipingTargetStr = str.slice(0,cmpChrLength);
       var zipTargetLeftStr = str.slice(cmpChrLength*2, str.length)
-      var zipTargetStr = zipingTargetStr + zipTargetLeftStr;
-      console.log("### zipTargetStr: ",zipTargetStr);
+      // var zipTargetStr = zipingTargetStr + zipTargetLeftStr;
+      console.log("### zipTargetLeftStr: ", zipTargetLeftStr);
       // var duplNum = zipTargetStr.replace(/[^0-9]+/g, '');
       // * 중복 숫자 정하는 과정
       if(completedZipStr.slice(completedZipStr.length-cmpChrLength, completedZipStr.length) ==  zipingTargetStr){
@@ -95,23 +95,26 @@
         //todo 리팩토링으로 duplChr 없애는 로직 추가하기 
         duplChr++;
       }
-      completedZipStr += (duplChr).toString() + zipTargetStr.replace(/[^a-z]+/g,'').slice(0, cmpChrLength);
+      
+      // completedZipStr += (duplChr).toString() + zipTargetStr.replace(/[^a-z]+/g,'').slice(0, cmpChrLength);
+      completedZipStr += (duplChr).toString() + zipingTargetStr;
 
       debugger;        
-      if( zipTargetLeftStr === ""){  // zip 끝
+      zip(zipTargetLeftStr, cmpChrLength, completedZipStr);
+    } else {
+      if(str.slice(cmpChrLastIdx, (cmpChrLastIdx)*2) === ""){  // zip 끝
         return false;
       }
-      zip(zipTargetStr, cmpChrLength, completedZipStr);
-    } else {
       // 위 비교에서 다르면 
       // completedZipStr 문자열 맨뒤에서 비교해야할 문자열의 길이 만큼 잘랐을 때 숫자가 있을 경우(중복)는 str.slice(0, cmpChrLength)를 추가해주지 않는다.
       var isDuplNum = completedZipStr.slice(completedZipStr.length-cmpChrLength, completedZipStr.length)
       Number.isInteger(isDuplNum) ? completedZipStr += str.slice(0, cmpChrLength) : completedZipStr;
       
-      var zipTargetStr = str.slice(cmpChrLength, str.length);
-      console.log("### zipTargetStr: ", zipTargetStr);
+      var zipTargetLeftStr = str.slice(cmpChrLength, str.length);
+      console.log("### zipTargetLeftStr: ", zipTargetLeftStr);
       debugger;
-      zip(zipTargetStr, cmpChrLength, completedZipStr);
+      completedZipStr += str.slice(0, cmpChrLength);
+      zip(zipTargetLeftStr, cmpChrLength, completedZipStr);
     }
     // }
   }
