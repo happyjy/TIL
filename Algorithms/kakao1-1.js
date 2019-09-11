@@ -67,7 +67,7 @@
             //   }
             // }
       }
-      console.log("### tempArr: ", tempArr);
+      // console.log("### tempArr: ", tempArr);
 
 
       var zipingStr = '';
@@ -92,7 +92,7 @@
               duplChr = tempArr[k];
               nextIteratorKIdx = k;
             }
-            continueCompare = false;
+            continueCompare = false;s
           }
         }
         //이부분이 앞축하는데 부가적인 정보를 세팅하는 부분
@@ -121,9 +121,12 @@
       }
     })
 
-    console.log("### shortesZipStr: ", shortestZipStr);
+    // console.log("### shortesZipStr: ", shortestZipStr);
     return shortestZipStr;
   }
 
   console.log(solution(arr1));
   console.log(solution(arr2));
+  console.log(solution(arr3));
+  console.log(solution(arr4));
+  console.log(solution(arr5));
