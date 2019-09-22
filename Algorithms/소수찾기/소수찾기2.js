@@ -50,6 +50,8 @@ solutions("23")
   # STUDY2 - Set
     * set으로 중복제거하기 
     -       https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set#Remove_duplicate_elements_from_the_array
+    - 다음 세가지 방법으로 중복 제거 하는 방법 설명 - new Set, filter(), forEach()
+    https://wsvincent.com/javascript-remove-duplicates-array/
 
   # STUDY3 - 모든 문자열 찾는 방법
     * 
