@@ -88,4 +88,4 @@ function isPrime1(n){
 }
 
 // console.log(solution('17'));
-c// console.log(solution('1234'));
+// console.log(solution('1234'));

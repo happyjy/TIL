@@ -6,19 +6,33 @@ const isPrime = (n) => {
   return true;
 }
 
+/* 
+  * 이렇게 ES6로 function을 선언하면 arguments를 사용 할 수 없음. 
+    - const makeAllNumber = (number = null, numbers) => {}
+    - 이런 error 문구를 띄움 -> 'arguments is not defined'
+*/
 const makeAllNumber = (number = null, ...numbers) => {
+  // const makeAllNumber = function(number = null, numbers){
+  // console.log(arguments);
   if (number === null) return [];
-  if (numbers.length === 0) return [numbers];
-
-  let arr = [number];
-  console.log("### arr : ", arr);
+  if (numbers.length === 0) return [number];
+  
+  let arr = [number]; // arr : 조합된 숫자
+  // console.log("### arr : ", arr);
+  debugger
   for (const idx in numbers){
+    // * rest : numbers에 idx 요소를 제외한 나머지 index 요소
     const rest = numbers.filter((v, i) => i !== parseInt(idx, 10));
-    const n = numbers[idx];
+    const idxNum = numbers[idx];
+
+    // * number, idxNum type : string ""+"1" = "1"/ "1" + "2" = "12"
+    //   - parseInt("1") -> 1
+
+    // * rest가 빈배열 일때 까지 '자귀함수가' 반복 (위 filter return type은 array)
 
     //STUDY3
-    arr = [...arr, ...makeAllNumber(number + n, ...rest)];
-    arr = [...arr, ...makeAllNumber(n + number, ...rest)];
+    arr = [...arr, ...makeAllNumber(number + idxNum, ...rest)];
+    arr = [...arr, ...makeAllNumber(idxNum + number, ...rest)];
     arr = [...new Set(arr)]; //#STUDY2
   }
 
@@ -26,11 +40,15 @@ const makeAllNumber = (number = null, ...numbers) => {
 }
 
 function solutions(numbers) {
-  debugger;
+  // debugger;
   numbers = numbers.split('');
   //#STUDY1
-  let makedNumbers = makeAllNumber("", ...numbers).filter(v => v !== '')
-                                                  .map(v => parseInt(v));
+  
+  debugger;
+  let makedNumbers = makeAllNumber("", ...numbers);
+  console.log(makedNumbers);
+  // let makedNumbers = makeAllNumber("", ...numbers).filter(v => v !== '')
+                                                  // .map(v => parseInt(v));
   makedNumbers = [...new Set(makedNumbers)];
 
   return makedNumbers.map(isPrime).filter(v => v === true).length;
@@ -38,7 +56,7 @@ function solutions(numbers) {
 }
 
 
-solutions("23")
+solutions("123")
 /*
   # STUDY1
   # SUTDY2
