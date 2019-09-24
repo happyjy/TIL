@@ -32,7 +32,7 @@
         
         입출력 예 설명
         예제 #1
-        문제에 나온 예와 같습니다.
+        문제에 나온 예와 같습니다. priorities 3은 locations 이 2 algorithms이 끝나면 위치는 배열 첫번째 에있어 return은 1이다.
 
         예제 #2
         6개의 문서(A, B, C, D, E, F)가 인쇄 대기목록에 있고 중요도가 1 1 9 1 1 1 이므로 C D E F A B 순으로 인쇄합니다.
@@ -41,28 +41,35 @@
     function solution(priorities, location) {
       let answer = 0;
 
+      //POINT1: 
       let mapping = priorities.map((priority, idx) => {
         return {
-          loc: index === location,
+          loc: idx === location,
           val: prioirty
         }
       })
 
       while (true) {
-        let cur = mapping.splice(0, 1)[0];
+        let cur = mapping.splice(0, 1)[0];//배열 첫번째 인자 빼내기
 
         if (mapping.some(itme => item.val > cur.val)) { //배열 첫번째 인자 val가 나머지 배열 인자들과 비교
           mapping.push(cur);  //나머지 배열 인자에 더 큰수가 있다면 배열 맨뒤에 push
         } else {
           answer++;           //배열 첫번째 인자가 제일 큰수라면 그때 반복한 횟수(==배열에 그 숫자가 있던 index)반환
-          if(cur.loc) return answer;
+          if(cur.loc) return answer;  //유효성검사를 한번 더 : 위 if문에 의해서 return을 바로 해도 되는데 현재 비교 기준인자 loc property가(cur.loc) true인지 유효성 검사를 한번 더 한다.
         }
       }
-
-
-
       return answer;
     }
+
+
+    /*
+      1. some 
+      * The some() method 'tests whether at least one element in the array passes the test implemented by the provided function'. 
+      It returns a Boolean value. 
+      * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+    */
+
   </script>
 </body>
 
