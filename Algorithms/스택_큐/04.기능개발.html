@@ -54,6 +54,47 @@
 
           return answer;
         }
+
+
+        //STEP1. 완료되는 날짜를 Math.ceil을 사용하지 않은 예
+        function solution1(progresses, speeds) {
+          var answer = [];
+
+          var daysToNeed = [];
+          var spendDays, functionCnt = 0;
+          //STEP1
+          for(var i = 0; i < progresses.length; i ++){
+              spendDays = 0;
+              while(1){
+                  spendDays++;
+                  progresses[i] += speeds[i];
+                  if(progresses[i] >= 100){
+                      break;
+                  }
+              }
+              daysToNeed.push(spendDays);
+          }
+          
+          spendDays = daysToNeed[0];
+          functionCnt = 1;
+          for(var i = 1; i < daysToNeed.length; i ++){
+              if(daysToNeed[i] <= spendDays){
+                  functionCnt ++;
+              }
+              else{
+                  spendDays = daysToNeed[i];
+                  answer.push(functionCnt);
+                  functionCnt = 1;
+              }
+
+              //index i가 daysToNeed array에 맨뒤로 갔을때 무조건 push
+              if(i === daysToNeed.length -1){
+                  answer.push(functionCnt);
+              }
+          }
+
+          return answer;
+        }
     </script>
     
 </body>
