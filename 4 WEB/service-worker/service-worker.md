@@ -1,4 +1,4 @@
-# service-worker로 local Resource로 요청 하는 방법에 대해서 알아보기 시작한다. 
+# service-worker로 local Resource로 요청 하는 방법에 대해서 알아보기 시작한다.
 
 
 ## 1. Register the service worker
