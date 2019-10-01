@@ -92,10 +92,10 @@
         const visited = [];
         let count = 0;
 
-        //STEP1
+        //STEP1 
         recursive(begin, 0);
 
-        //STEP2
+        //STEP2 재귀호출 function
         function recursive(current, count) {
             
             //STEP3 current, target word가 같을때 
@@ -109,7 +109,7 @@
             console.log("---------------recursive---------------");
             // console.log({current, count});
 
-            //STEP4
+            //STEP4 words 순회 하며 current 단어와 한글자 다른 word 찾기 
             words.forEach((word, index) => {
                 let j = word.length - 1;
                 let diff = 0;
@@ -142,22 +142,32 @@
                 //diff 개수, visited Array(words Array 중에서 확인한 단어 보관 Array)
                 if (diff === 1 && !visited[word]) {
                     // debugger;
-                    visited[word] = 1; //true;, *** 이미 if문 조건에 만족해서 사용한 단어 확인하기 위함, visited -> clousre영역
-                    // console.log(visited)
+                    //STEP7 ***이미 if문 조건에 만족해서 사용한 단어 확인하기 위함, visited -> clousre영역
+                    visited[word] = 1; //true;
 
-                    //STEP7 재귀 호출로 문자 하나가 다른 단어를 찾았으니 
+                    //STEP8 재귀 호출로 문자 하나가 다른 단어를 찾았으니 
                     //다음 문자하나가 다른 문자 찾기
                     console.log("### stack check: ", {word});
                     console.log("### stack check: ", count+1);
                     console.log("### stack check: ", visited);
                     recursive(word, count + 1); //recursive current word 교체
 
-                    //STEP8 왜 하지? 
+                    //STEP7
                     visited[word] = 0; //false;
                 }
             });
         }
 
+/* 
+
+        STEP6 currend word, 주어진 words중 하나와 글자를 비교
+        
+        STEP7 해주는 이유        
+        1. words에 배열 요소 중 recursive function으로 방문/확인한 것을 
+        풀어줘야 words에 배열 요소 중 다른 단어에서 같은 단어를 반복 확인 하지 않기 위해서 있는 로직
+        
+        STEP8 재귀 호출로 문자 하나가 다른 단어를 찾았으니 
+ */
         return answer === Infinity ? 0 : answer;
     }
     console.log("ANSWER: ", solutionAnalysis("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"]));
