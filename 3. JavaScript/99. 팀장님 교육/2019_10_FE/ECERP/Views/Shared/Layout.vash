@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>@model.title</title>
+        <link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="screen" charset="utf-8">
+    </head>
+    <body>
+        여기는 Layout.vash 입니다.
+        Node-Razor
+        아래 '@html.renderBody() 코드에 의해서 sample.vash 파일에 있는 내용이 불러와 집니다. '
+        @html.renderBody()
+        <footer>
+            @html.block('footer')
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "2019_10_fe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "node-razor": "0.0.3"
+  },
+  "scripts": {
+    "deploy": "node test && node server",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+  
+}
