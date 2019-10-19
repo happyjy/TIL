@@ -1,12 +1,31 @@
 <html>
     <head>
         <!-- <script src="/ECERP/js/lib/require.js"></script> -->
+        <script src="/ECERP/Contents/js/frameworks/ecount.router.js"></script>
     </head>
     <body>
         <div id="menu">
-            <span>거래처 등록</span>
-            <span>창고 등록</span>
+            <span onClick="menuClick('cust')">거래처 등록</span>
+            <span onClick="menuClick('wh')">창고 등록</span>
         </div>
         <div id="mainPage"></div>
     </body>
+
+    <script>
+      const menu = {
+        "cust": {
+          menuType: "1",
+          submenu: "100000"
+        },
+        "wh": {
+          menuType: "2",
+          submenu: "200000"
+        }
+      }
+
+      function menuClick(menuId){
+        ecount.router.route(menu[menuId]);
+        // alert(menuId);
+      }
+    </script>
 </html>
