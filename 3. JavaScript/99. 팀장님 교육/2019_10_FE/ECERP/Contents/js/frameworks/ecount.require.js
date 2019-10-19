@@ -7,6 +7,16 @@ require = (function(){
     script.src = urlMap[key].url;
     script.async = true;
 
+    script.onreadystatechange = script.onload = function (evt) {
+      var state = script.readyState;
+
+      debugger;
+      if ((evt && evt.type == "load") || /(loaded|complete)$/i.test(state)) {
+        script.onreadystatechange = script.onload = null;
+        callback();
+      }
+    };
+
     document.body.appendChild(script);
   }
 
@@ -18,7 +28,10 @@ require = (function(){
 
       if(urlMap[key]){
         if(!urlMap[key].complete){
-          scriptLoader(key, callback);
+          scriptLoader(key, function(){
+            urlMap[key].complete = true;
+            callback();
+          });
         }else{
           callback();
         }
@@ -39,11 +52,14 @@ require = (function(){
 
     define: function(config){
       for(var key in config){
-        urlMap[key] = {
-          url: config[key]
-        };
+        if(!urlMap[key] ||
+            urlMap[key].url != config[key]){
+          urlMap[key] = {
+            url: config[key]
+          };
+        }
       }
-      console.log("### ecount.require.js: ", urlMap);
+      console.log("### ecount.require.js > define: ", urlMap);
     }
   }
 })();
