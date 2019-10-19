@@ -5,6 +5,14 @@ ecount.control = class {
   constructor(options) {
     this.options = options;
   }
+
+  getTitle(){
+    return this.options.id;
+  }
+  
+  render($parent){
+    $parent.append(this.getTemplate());
+  }
 }
 
 ecount.control.input = class extends ecount.control {
@@ -13,17 +21,22 @@ ecount.control.input = class extends ecount.control {
     super(options);
   }
 
-  render() {
-    console.log("### control.input render");
-    $("body").append(this.getTemplate());
-
-  }
+  // render($parent) {
+  //   // console.log("### control.input render");
+  //   // $("body").append(this.getTemplate());
+  //   $parent.append(this.getTemplate());
+  // }
 
   getTemplate() {
     return `<input type="text" id="${this.options.id}"
                 name="${this.options.name}"
                 value="${this.options.value}"/>`;
   }
+
+  getTitle() {
+    return this.options.id;
+  }
+
   getValue() {
 
   }
@@ -46,11 +59,12 @@ ecount.control.radio = class extends ecount.control {
     super(options);
   }
 
-  render() {
-    console.log("### control.radio render");
-    $("body").append(this.getTemplate());
+  // render($parent) {
+  //   // console.log("### control.radio render");
+  //   // $("body").append(this.getTemplate());
+  //   $parent.append(this.getTemplate());
 
-  }
+  // }
 
   getTemplate() {
     return this.options.items.map(item => {
@@ -59,6 +73,11 @@ ecount.control.radio = class extends ecount.control {
                   value="${item.value}">${item.text}</input>`;
     }).join("");
   }
+
+  getTitle() {
+    return this.options.id;
+  }
+
   getValue() {
 
   }

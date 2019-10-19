@@ -1,5 +1,6 @@
 <script src="/ECERP/Contents/js/lib/jquery-3.4.1.js"></script>
 <script src="/ECERP/Contents/js/frameworks/ui/control/ecount.control.js"></script>
+<script src="/ECERP/Contents/js/frameworks/ui/layout/ecount.layout.js"></script>
 
 
 <h1 class="name">ECOUNT</h1>
