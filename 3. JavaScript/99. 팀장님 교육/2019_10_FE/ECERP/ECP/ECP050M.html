@@ -3,6 +3,8 @@
         <!-- <script src="/ECERP/js/lib/require.js"></script> -->
         <script src="/ECERP/Contents/js/lib/jquery-3.4.1.js"></script>
         <script src="/ECERP/Contents/js/frameworks/ecount.router.js"></script>
+        <script src="/ECERP/Contents/js/frameworks/ecount.require.js"></script>
+        <script src="/ECERP/Contents/js/frameworks/ui/page/ecount.page.js"></script>
     </head>
     <body>
         <div id="menu">
@@ -28,6 +30,7 @@
       }
 
       function menuClick(menuId){
+        debugger;
         ecount.router.route(menuId);
         // alert(menuId);
       }
