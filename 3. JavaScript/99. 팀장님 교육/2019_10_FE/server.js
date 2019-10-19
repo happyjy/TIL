@@ -45,17 +45,17 @@ app.get('/ECERP/ECP/sample.html', function (req, resp, next) {
   }
 })
 
-app.get('/ECERP/ECP/cust', function (req, resp, next) {
+app.get('/ECERP/ECP/ECP001M', function (req, resp, next) {
   console.log(req.query)
-    resp.render('cust', {
+    resp.render('ECP001M', {
       layout: null,
       title: "ECOUNT"
     });
 })
 
-app.get('/ECERP/ECP/wh', function (req, resp, next) {
+app.get('/ECERP/ECP/ECP002M', function (req, resp, next) {
   console.log(req.query)
-    resp.render('wh', {
+    resp.render('ECP002M', {
       layout: null,
       title: "ECOUNT"
     });

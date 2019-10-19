@@ -6,24 +6,24 @@
     </head>
     <body>
         <div id="menu">
-            <span onClick="menuClick('cust')">거래처 등록</span>
+            <span onClick="menuClick('ECP001M')">거래처 등록</span>
             <br>
-            <span onClick="menuClick('wh')">창고 등록</span>
+            <span onClick="menuClick('ECP002M')">창고 등록</span>
         </div>
         <div id="mainPage"></div>
     </body>
 
     <script>
       const menu = {
-        "cust": {
+        "ECP001M": {
           menuType: "1",
           submenu: "100000",
-          url: "/ECERP/ECP/cust"
+          url: "/ECERP/ECP/ECP001M"
         },
-        "wh": {
+        "ECP002M": {
           menuType: "2",
           submenu: "200000",
-          url: "/ECERP/ECP/wh"
+          url: "/ECERP/ECP/ECP002M"
         }
       }
 

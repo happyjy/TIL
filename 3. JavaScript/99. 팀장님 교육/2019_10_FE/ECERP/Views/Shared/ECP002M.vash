@@ -4,13 +4,13 @@
 
 
 <h1 class="name">ECOUNT</h1>
-<h2> cust.vash 파일 입니다. </h2>
+<h2> wh.vash 파일 입니다. </h2>
 
 <script>
   window.viewBag = {
-    title: "cust"
+    title: "wh"
   };
 </script>
-<script src="/ECERP/ECP/sample.js"></script>
+<script src="/ECERP/ECP/ECP002M.js"></script>
 
 
