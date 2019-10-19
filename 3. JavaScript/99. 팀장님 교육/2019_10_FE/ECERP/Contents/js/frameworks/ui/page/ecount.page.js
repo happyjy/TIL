@@ -11,5 +11,11 @@ ecount.page.factory = function(parent, pageId, property){
   //2. 공통 스크립트 버전 확인
   //required file 버전 정보(파일 뒤 숫자) 확인 
   //3. page instance 생성
+  
 
+  //1. 
+  debugger
+  require.load(parent, function(){
+
+  })
 }

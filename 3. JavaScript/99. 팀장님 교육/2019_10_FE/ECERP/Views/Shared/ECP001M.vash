@@ -7,8 +7,9 @@
 
 <script>
   require.define({
+    "ecount.page.list": "/ECERP/Contents/js/frameworks/ui/page/ecount.page.list.js",
     "ecount.control": "/ECERP/Contents/js/frameworks/ui/control/ecount.control.js",
-    "ecount.layout": "/ECERP/Contents/js/frameworks/ui/layout/ecount.layout.js"
+    "ecount.layout": "/ECERP/Contents/js/frameworks/ui/layout/ecount.layout.js",
   });
 
   window.viewBag = {
