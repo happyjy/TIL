@@ -44,3 +44,19 @@ app.get('/ECERP/ECP/sample.html', function (req, resp, next) {
     });
   }
 })
+
+app.get('/ECERP/ECP/cust', function (req, resp, next) {
+  console.log(req.query)
+    resp.render('cust', {
+      layout: null,
+      title: "ECOUNT"
+    });
+})
+
+app.get('/ECERP/ECP/wh', function (req, resp, next) {
+  console.log(req.query)
+    resp.render('wh', {
+      layout: null,
+      title: "ECOUNT"
+    });
+})

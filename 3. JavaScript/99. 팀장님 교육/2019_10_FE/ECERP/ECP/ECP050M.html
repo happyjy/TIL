@@ -1,11 +1,13 @@
 <html>
     <head>
         <!-- <script src="/ECERP/js/lib/require.js"></script> -->
+        <script src="/ECERP/Contents/js/lib/jquery-3.4.1.js"></script>
         <script src="/ECERP/Contents/js/frameworks/ecount.router.js"></script>
     </head>
     <body>
         <div id="menu">
             <span onClick="menuClick('cust')">거래처 등록</span>
+            <br>
             <span onClick="menuClick('wh')">창고 등록</span>
         </div>
         <div id="mainPage"></div>
@@ -16,12 +18,12 @@
         "cust": {
           menuType: "1",
           submenu: "100000",
-          url: "/ECERP/ECP/cust.html"
+          url: "/ECERP/ECP/cust"
         },
         "wh": {
           menuType: "2",
           submenu: "200000",
-          url: "/ECERP/ECP/wh.html"
+          url: "/ECERP/ECP/wh"
         }
       }
 

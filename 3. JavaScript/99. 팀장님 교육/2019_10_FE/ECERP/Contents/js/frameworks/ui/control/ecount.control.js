@@ -1,6 +1,6 @@
-window.ecount = {
-};
-
+if(!window.ecount){
+  window.ecount = {};
+}
 ecount.control = class {
   constructor(options) {
     this.options = options;
