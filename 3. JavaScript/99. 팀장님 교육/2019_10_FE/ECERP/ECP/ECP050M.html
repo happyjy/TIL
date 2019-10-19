@@ -15,17 +15,23 @@
       const menu = {
         "cust": {
           menuType: "1",
-          submenu: "100000"
+          submenu: "100000",
+          url: "/ECERP/ECP/cust.html"
         },
         "wh": {
           menuType: "2",
-          submenu: "200000"
+          submenu: "200000",
+          url: "/ECERP/ECP/wh.html"
         }
       }
 
       function menuClick(menuId){
-        ecount.router.route(menu[menuId]);
+        ecount.router.route(menuId);
         // alert(menuId);
+      }
+
+      function getMenu(menuId){
+        return menu[menuId].url;
       }
     </script>
 </html>
