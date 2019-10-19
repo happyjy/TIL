@@ -13,9 +13,20 @@ ecount.page.factory = function(parent, pageId, property){
   //3. page instance 생성
   
 
-  //1. 
   debugger
-  require.load(parent, function(){
-
+  new Promise(function(resolve, reject){
+    require.load(parent, resolve)
   })
+  .then(function(resolve){
+    require.load("ecount.control", "ecount.layout", resolve);
+  })
+  .then(function(){
+    console.log(1);
+  })
+
+  require.load(parent, function(){
+    require.load("ecount.control", "ecount.layout", function(){
+
+    });
+  });
 }

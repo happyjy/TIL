@@ -6,6 +6,7 @@
 <h2> ECP001M 파일 입니다. </h2>
 
 <script>
+  debugger;
   require.define({
     "ecount.page.list": "/ECERP/Contents/js/frameworks/ui/page/ecount.page.list.js",
     "ecount.control": "/ECERP/Contents/js/frameworks/ui/control/ecount.control.js",
