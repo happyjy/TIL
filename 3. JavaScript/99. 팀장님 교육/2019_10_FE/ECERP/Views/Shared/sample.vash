@@ -1,2 +1,11 @@
+<script src="/ECERP/Contents/js/lib/jquery-3.4.1.js"></script>
+<script src="/ECERP/Contents/js/frameworks/ui/control/ecount.control.js"></script>
+
+
 <h1 class="name">ECOUNT</h1>
 <h2> smaple.vash 파일 입니다. </h2>
+
+
+<script src="/ECERP/ECP/sample.js"></script>
+
+
