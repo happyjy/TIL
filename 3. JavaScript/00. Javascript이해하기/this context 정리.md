@@ -1,6 +1,31 @@
-```js
-# this in function(){}
 
+
+
+
+
+
+
+
+# 함수 실행 방법 별 this context
+
+>  this를 사용하는 해당 함수를 어떻게 실행하느냐에 따라 바뀐다. 
+>
+>  0. anonymous function
+>  1. regular runction call
+>  2. dot notation
+>  3. call, apply, bind
+>  4. 'new' keyword  
+>     참고 : https://www.youtube.com/watch?v=ayyuU0xdbIU
+>  5. Event Handler
+>  6. this on the object's prototype chain
+>  7. this with a getter or setter
+
+## 0. anonymous function
+
+* anonymouse function 안에 있는 this는 widdow를 가르킨다. 
+* arrow function안에 있는 this는 encosing lexical context's this 
+
+  ```js
 var obj = {
   bar: function() {
     var x = (function(){return this})();
@@ -21,27 +46,7 @@ var obj = {
 obj.bar() === obj	//true
 
 
-```
-
-
-
-
-
-
-
-# 함수 실행 방법 별 this context
-
->  this를 사용하는 해당 함수를 어떻게 실행하느냐에 따라 바뀐다. 
->  1. regular runction call
->  2. dot notation
->  3. call, apply, bind
->  4. 'new' keyword  
->  참고 : https://www.youtube.com/watch?v=ayyuU0xdbIU
->  5. Event Handler
->  6. this on the object's prototype chain
->  7. this with a getter or setter
-
-  
+  ```
 
 ## 1. Regular function call - 일반 함수 실행 방식
   ``` js
