@@ -1,21 +1,14 @@
-
-
-
-
-
-
-
-
 # 함수 실행 방법 별 this context
 
 >  this를 사용하는 해당 함수를 어떻게 실행하느냐에 따라 바뀐다. 
 >
 >  0. anonymous function
+>       참고: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
 >  1. regular runction call
 >  2. dot notation
 >  3. call, apply, bind
 >  4. 'new' keyword  
->     참고 : https://www.youtube.com/watch?v=ayyuU0xdbIU
+>      참고 : https://www.youtube.com/watch?v=ayyuU0xdbIU
 >  5. Event Handler
 >  6. this on the object's prototype chain
 >  7. this with a getter or setter
