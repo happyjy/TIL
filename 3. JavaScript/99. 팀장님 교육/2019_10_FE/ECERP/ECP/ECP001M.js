@@ -1,6 +1,6 @@
-ecount.page.factory("ecount.page.list", "ECP001M", {
+ecount.page.factory("ecount.page", "ECP001M", {
   onInitHeader: function (){
-
+    console.log(arguments);
   },
   onInitContents: function (){
     const input = new ecount.control.input({

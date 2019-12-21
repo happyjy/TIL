@@ -1,4 +1,4 @@
-ecount.page.factory("ecount.page.list", "ECP002M", {
+ecount.page.factory("ecount.page", "ECP002M", {
   onInitHeader: function (){
 
   },

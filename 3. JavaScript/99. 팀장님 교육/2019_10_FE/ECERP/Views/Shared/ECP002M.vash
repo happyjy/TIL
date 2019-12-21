@@ -1,7 +1,3 @@
-<script src="/ECERP/Contents/js/frameworks/ui/control/ecount.control.js"></script>
-<script src="/ECERP/Contents/js/frameworks/ui/layout/ecount.layout.js"></script>
-
-
 <h1 class="name">ECOUNT</h1>
 <h2> ECP002M 파일 입니다. </h2>
 
@@ -13,7 +9,7 @@
   });
 
   window.viewBag = {
-    title: "cust"
+    title: "ECP002M"
   };
 </script>
 

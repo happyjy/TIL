@@ -17,7 +17,7 @@ ecount.router = (function () {
       url: url,
       success: function(result){
         console.log("### movepage function: ", result);
-        $("#mainPage").html(result);
+        $("#mainPage").empty().html(result);
       }
     });
   }
