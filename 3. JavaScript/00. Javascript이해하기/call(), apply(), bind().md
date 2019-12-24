@@ -172,3 +172,76 @@ Function.prototype.bind = function(obj){
   return me.apply(obj, args);
 }
 ```
+
+## creating a bound function
+
+```js
+this.x = 9;    // this refers to global "window" object here in the browser
+var module = {
+  x: 81,
+  getX: function() { return this.x; }
+};
+
+module.getX(); // 81
+
+var retrieveX = module.getX;
+module.getX(); // return: 81 - The ufnction gets invoked at the module scope
+retrieveX();   // returns 9 - The function gets invoked at the global scope
+
+// Create a new function with 'this' bound to module
+// New programmers might confuse the global var x with module's property x
+var boundGetX = retrieveX.bind(module);
+boundGetX(); // 81
+```
+
+
+
+## Partially applied functions
+
+```js
+function list() {
+  return Array.prototype.slice.call(arguments);
+}
+
+function addArguments(arg1, arg2) {
+    return arg1 + arg2
+}
+
+var list1 = list(1, 2, 3); // [1, 2, 3]
+var result1 = addArguments(1, 2); // 3
+
+// Create a function with a preset leading argument
+var leadingThirtysevenList = list.bind(null, 37);
+var list2 = leadingThirtysevenList(); // [37]
+var list3 = leadingThirtysevenList(1, 2, 3); // [37, 1, 2, 3]
+
+// Create a function with a preset first argument.
+var addThirtySeven = addArguments.bind(null, 37); 
+var result2 = addThirtySeven(5); // 37 + 5 = 42 
+var result3 = addThirtySeven(5, 10);// 37 + 5 = 42 , second argument is ignored
+
+```
+
+
+
+## with setTimeout()
+
+```js
+function LateBloomer() {
+  this.petalCount = Math.floor(Math.random() * 12) + 1;
+}
+
+// Declare bloom after a delay of 1 second
+LateBloomer.prototype.bloom = function() {
+  // #POINT
+  window.setTimeout(this.declare.bind(this), 1000);
+};
+
+LateBloomer.prototype.declare = function() {
+  console.log('I am a beautiful flower with '+ this.petalCount + ' petals!');
+};
+
+var flower = new LateBloomer();
+flower.bloom();  
+// after 1 second, triggers the 'declare' method
+```
