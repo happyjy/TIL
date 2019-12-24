@@ -1,14 +1,16 @@
 # call(), apply(), bind()
 
-
-## call(), apply()
 * call() 정의
 * call()을 생성자 연결에 사용
 * call()을 익명함수와 함께 쓰기 
 * call()호출시 this에 특정 값을 넣어 동작하기
 * call() 호출시 첫번째 인자값 넣지 않고 동작하기 
 * call, apply함수의 비교(this에 특정 값 넣어 동작)
-
+* bind()
+* bind()함수 구현 해보기
+* creating a bound function
+* Partially applied functions
+* with setTimeout()
 
 
 ## call() 정의
