@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    /*
+      # 콜백 함수 내부에서 외부 데이터를 사용하고자 할 때
+    */
+    var fruits = ['apple', 'banana', 'peach'];
+    var $ul = document.createElement('ul');
+
+    fruits.forEach( function(fruit){
+      var $li = document.createElement('li');
+      $li.innerText = fruit;
+      $li.addEventListener('click', function() { 
+        alert('your choice is ' + fruit);
+      });
+      $ul.appendChild($li);
+    });
+    document.body.appendChild($ul);  
+
+    // var fruits = ['apple', 'banana', 'peach'];
+    // var $ul = document.createElement('ul');
+
+    // var alertFruit = function (fruit) {
+    //   debugger;
+    //   alert('your choic is ' + fruit);
+    // }
+
+    // fruits.forEach( function(fruit){             //(A)
+    //   var $li = document.createElement('li');
+    //   $li.innerText = fruit;
+    //   $li.addEventListener('click', alertFruit);
+    //   $ul.appendChild($li);
+    // });
+    // document.body.appendChild($ul);
+  </script>
+  
+</body>
+</html>
