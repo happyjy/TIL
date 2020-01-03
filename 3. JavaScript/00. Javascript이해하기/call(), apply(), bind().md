@@ -126,14 +126,14 @@ display.call(); // Cannot read the property of 'sData' of undefined
 
 ## call, apply함수의 비교(this에 특정 값 넣어 동작)
 ```js
-var obj = {name:"Jaeyoon"};
+var obj = {name: "Jaeyoon"};
 var greeting = function(a, b){
     return "welcome to " + a + " in " + b + " " + this.name;
 };
 console.log(greeting.call(obj,"Korea","Seoul"));	
 //welcome to Korea in Seoul Jaeyoon
 
-var obj = {name:"Jaeyoon"};
+var obj = {name: "Jaeyoon"};
 var greeting = function(a, b){
     return "welcome to " + a + " in " + b + " " + this.name;
 };
@@ -150,7 +150,7 @@ console.log(greeting.apply(obj,["Korea","Seoul"]));
 > 함수와 객체를 서로 묶는 것이다.  
 > bind()함수는 새 함수를 반환한다.(call, apply는 바로 동작`)
 ```js
-function f(y) { return this.x + y}    //바인드되어야 하는 함수
+function f(y) { return this.x + y }    //바인드되어야 하는 함수
 var o = {x:1};      //바인드될 객체
 var g = f.bind(o);  //g(x)를 호출하면 o.f(x)가 호출된다.
 g(2)                //=>3
@@ -167,8 +167,8 @@ Function.prototype.bind = function(obj){
   //인자 목록을 작성하는데, 첫 번재 이후의 인자부터
   //나머지 모든 인자를 이 함수에 전달 한다.
   var args = [], i;
-  for(i = 1; i<boundArgs.length; i++) args.push(boundArgs[i]);
-  for(i = 0; i<arguments.length; i++) args.push(arguments[i]);
+  for(i = 1; i < boundArgs.length; i++) args.push(boundArgs[i]);
+  for(i = 0; i < arguments.length; i++) args.push(arguments[i]);
   
   //인자들을 포함하여 obj의 메서드로 me를 호출한다.
   return me.apply(obj, args);

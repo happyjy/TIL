@@ -15,10 +15,10 @@
 
 ## 0. anonymous function
 
-* anonymouse function 안에 있는 this는 widdow를 가르킨다. 
+* anonymouse function 안에 있는 this는 window를 가르킨다. 
 * arrow function안에 있는 this는 encosing lexical context's this 
 
-  ```js
+```js
 var obj = {
   bar: function() {
     var x = (function(){return this})();
@@ -110,7 +110,7 @@ obj.bar() === obj	//true
   }
   
   var ken = {
-   age: 35
+    age: 35
   }
   
   foo.call(ken, 1,2,3,4,5);
@@ -204,7 +204,7 @@ element.addEventListenr('click', function onClick (ev) {
 
 ```js
 var o = {
-  fn:function() { return this.a + this.b; }
+  fn: function() { return this.a + this.b; }
 };
 
 var p = Object.create(o);
