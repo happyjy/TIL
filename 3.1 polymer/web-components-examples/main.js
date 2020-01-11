@@ -1,9 +1,14 @@
 
+
+//1. this.attachShadow으로 shadowDom 생성시작
+//2. 
+
 // Create a class for the element
 class PopUpInfo extends HTMLElement {
   constructor() {
     // Always call super first in constructor
     super();
+    debugger;
 
     // Create a shadow root
     const shadow = this.attachShadow({mode: 'open'});
@@ -41,11 +46,12 @@ class PopUpInfo extends HTMLElement {
 
     style.textContent = `
       .wrapper {
+        border: 1px red dotted;
         position: relative;
       }
       .info {
         font-size: 0.8rem;
-        width: 200px;
+        width: 300px;
         display: inline-block;
         border: 1px solid black;
         padding: 10px;
@@ -63,6 +69,7 @@ class PopUpInfo extends HTMLElement {
       }
       .icon:hover + .info, .icon:focus + .info {
         opacity: 1;
+        border: 2px blue solid;
       }
     `;
 
