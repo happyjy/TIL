@@ -1,7 +1,8 @@
 
 
 //1. this.attachShadow으로 shadowDom 생성시작
-//2. 
+//2. shadowDom 생성 및 shadowDom에 보여질 el을 appendChild
+//3. define: new element 
 
 // Create a class for the element
 class PopUpInfo extends HTMLElement {
