@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    /**
+     *  server 5request can process 
+     */
+   
+
+    var n = 7;
+    // var timestamp = [2,2,4,8,11,28,30];
+    var timestamp = [2,2,2,2,2,2,2,4,8,11,28,30];
+    var topEl = [0,5,5,15];
+
+    //var a = [2,2,4]
+
+    //2. filter: topEl 요소보다 낮은 timestamp에서 낮은 숫자 
+    //2.1 slice server process reqeust(5) 
+    //3. 2단계에서 조건에 해당되는 숫자 delete from timestamp
+    //3.1 count processed timstamp 
+
+    var filteredTS = [];
+    var processedNumber = 0;
+    topEl.forEach( v => {
+      filteredTS = timestamp.filter( v2 => v2 < v );
+      filteredTS = filteredTS.sort((a, b) => b-a).slice(0, 5);
+      //count process number
+      processedNumber += filteredTS.length;
+      
+      //delete target processed from timestamp 
+      //timestamp - filteredTS;
+
+      //# issue1
+        //* filter로처리하면 같은 중복 숫자 요소 제거됨.
+        // eg) timestamp = [1,1,2,3,4,5], filteredTs = [1,2,3]
+        // filteredTS요소를 timestamp에서 중복 숫자 상관없이 제거하면 [4,5] 
+        // (1하나만 없애야 하는데 모두 없앰)
+
+      //# 중복 문제 해결 x - issue1문제를 해결해야함.
+      timestamp = timestamp.filter( ( el ) => !filteredTS.includes( el ) );
+
+
+      //TODO var timestamp = [2,2,2,2,2,2,2,4,8,11,28,30]; 인 경우를 확인하자.
+      // timestamp = timestamp.reduce( (unique, item) => {
+      //   return filteredTS.includes(item) ? unique : [...unique, item]
+      // }, []);
+
+      console.log({timestamp, filteredTS, topEl: v, processedNumber});
+    });
+
+  /*
+      array duplicated 처리에 대해서 
+      https://medium.com/dailyjs/how-to-remove-array-duplicates-in-es6-5daa8789641c
+  */
+
+  /*
+    myArray = myArray.filter( function( el ) {
+      if(toRemove.indexOf (el) > 0){
+          myArray.filter( v => {
+              //myArray가 두번 쓰이는데 여기서 myArray가 변동되면 밖에 있는 Array 요소도 변동 되는가?
+              return true
+          })
+          
+      }  
+      return toRemove.indexOf( el ) < 0;
+  } );
+  
+  */
+  </script>
+  
+</body>
+</html>
